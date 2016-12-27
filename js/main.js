@@ -3,7 +3,8 @@ window.onload = function(){
 }  
 
 function run(){
-
+	/*
+	
 	$.ajax( {
 
 	  		method : 'GET',
@@ -15,10 +16,13 @@ function run(){
 		        'application/x-www-form-urlencoded; charset=UTF-8'
 		    },
 		    url : "http://punchng.com/feed/",
-		   	dataType : "text/xml",
+		   	dataType : "jsonp",
 
 		   	success : function ( resp ) {
 		   		alert("success");
 		    } 
 	});
+	
+	*/
+
 }
