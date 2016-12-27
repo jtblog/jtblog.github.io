@@ -12,7 +12,7 @@ function run(){
 		        withCredentials: true
 		    },
 		    headers : {
-		        "Content-Type": "application/xml"
+		        'application/x-www-form-urlencoded; charset=UTF-8'
 		    },
 		    url : "http://punchng.com/feed/",
 		   	dataType : "xml",
@@ -20,6 +20,5 @@ function run(){
 		   	success : function ( resp ) {
 		   		alert("success");
 		    } 
-
 	});
 }
