@@ -4,7 +4,7 @@ window.onload = function(){
 
 function run(){
 	$.get("http://punchng.com/feed/").done(function (data) {
-	    alert(JSON.stringify(data));
+	    alert("");
 	});
 }
 
