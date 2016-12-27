@@ -3,9 +3,8 @@ window.onload = function(){
 }  
 
 function run(){
-	getFEED('http://punchng.com/feed/', function(request){
-	    var response = request.currentTarget.response || request.target.responseText;
-	    alert(JSON.stringify(response));
+	$.get("http://punchng.com/feed/").done(function (data) {
+	    alert(JSON.stringify(data));
 	});
 }
 
