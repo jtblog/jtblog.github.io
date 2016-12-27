@@ -12,11 +12,10 @@ function run(){
 		        withCredentials: true
 		    },
 		    headers : {
-		        "Content-Type": "application/json",
-	      		"Accept": "application/vnd.github.v3.full+json"
+		        "Content-Type": "application/xml"
 		    },
 		    url : "http://punchng.com/feed/",
-		   	dataType : "json",
+		   	dataType : "xml",
 
 		   	success : function ( resp ) {
 		   		alert("success");
