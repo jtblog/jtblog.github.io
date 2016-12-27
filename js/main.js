@@ -1,5 +1,6 @@
 window.onload = function(){
-    YUI().use('yql', function(Y) {
+      
+  YUI().use('yql', function(Y) {
 
     var q = Y.YQL('select * from rss where url="http://punchng.com/feed/"', function(r) {
         var items = r.query.results.item;
@@ -19,4 +20,6 @@ window.onload = function(){
     });
 	
     q.send();
+});
+
 }  
