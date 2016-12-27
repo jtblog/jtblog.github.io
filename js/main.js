@@ -3,15 +3,24 @@ window.onload = function(){
 }  
 
 function run(){
-	$.ajax({
-        type: "GET",
-        url:'https://news.google.com/?output=rss',   
-        dataType: "jsonp",
-        //contentType: "text/xml; charset=utf-8",
-        headers: { "Access-Control-Allow-Origin":"*",},                
 
-        success: function(xml) {
-        alert("success");
-        }   
+	$.ajax( {
+
+	  		method : 'GET',
+			crossDomain : true,
+		    xhrFields : {
+		        withCredentials: true
+		    },
+		    headers : {
+		        "Content-Type": "application/json",
+	      		"Accept": "application/vnd.github.v3.full+json"
+		    },
+		    url : "https://api.github.com/repos/jtblog/jtblog.github.io/readme",
+		   	dataType : "jsonp",
+
+		   	success : function ( resp ) {
+		   		alert("success");
+		    } 
+		    
 	});
 }
