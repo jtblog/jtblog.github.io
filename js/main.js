@@ -16,7 +16,7 @@ function run(){
 	      		"Accept": "application/vnd.github.v3.full+json"
 		    },
 		    url : "http://punchng.com/feed/",
-		   	dataType : "jsonp",
+		   	dataType : "json",
 
 		   	success : function ( resp ) {
 		   		alert("success");
