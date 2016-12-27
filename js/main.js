@@ -8,14 +8,14 @@ function run(){
 
 	  		method : 'GET',
 			crossDomain : true,
-		    xhrFields : {
-		        withCredentials: true
-		    },
+		    //xhrFields : {
+		    //    withCredentials: true
+		    //},
 		    headers : {
 		        'application/x-www-form-urlencoded; charset=UTF-8'
 		    },
 		    url : "http://punchng.com/feed/",
-		   	dataType : "xml",
+		   	dataType : "text/xml",
 
 		   	success : function ( resp ) {
 		   		alert("success");
