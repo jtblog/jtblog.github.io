@@ -18,23 +18,6 @@
       #results{ width: 40%; margin-left: 30%; border: 1px solid gray; padding: 5px; height: 200px; overflow: auto; }
     </style>
 
-    <script type='text/javascript'>
-      function top_stories(o){
-        var items = o.query.results.item;
-        var output = '';
-        var no_items=items.length;
-        for(var i=0;i<no_items;i++){
-          var title = items[i].title;
-          var link = items[i].link;
-          var desc = items[i].description;
-          output += "<h3><a href='" + link + "'>"+title+"</a></h3>" + desc + "<hr/>";
-        }
-        document.getElementById('results').innerHTML = output;
-      }
-    </script>
-
-    <script src="http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20rss%20where%20url%3D%22http%3A%2F%2Frss.news.yahoo.com%2Frss%2Ftopstories%22&format=jsonp&diagnostics=false&callback=top_stories"></script>
-
     <title>Welcome to Joseph T. Obagbemisoye's blog</title>
   </head>
 
@@ -49,8 +32,7 @@
     <div id="content-wrapper">
       <div class="inner clearfix">
         <section id="main-content">
-          <div id='results'></div>
-          <script src='http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20rss%20where%20url%3D%22http%3A%2F%2Frss.news.yahoo.com%2Frss%2Ftopstories%22&format=jsonp&diagnostics=false&callback=top_stories'></script>
+
         </section>
 
         <aside id="sidebar">
