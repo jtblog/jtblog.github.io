@@ -15,12 +15,12 @@ function run(){
 		        "Content-Type": "application/json",
 	      		"Accept": "application/vnd.github.v3.full+json"
 		    },
-		    url : "https://api.github.com/repos/jtblog/jtblog.github.io/readme",
+		    url : "http://punchng.com/feed/",
 		   	dataType : "jsonp",
 
 		   	success : function ( resp ) {
 		   		alert("success");
 		    } 
-		    
+
 	});
 }
