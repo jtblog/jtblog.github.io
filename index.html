@@ -12,7 +12,7 @@
 
     <script src= 'js/main.js' type='text/javascript'></script>
     <script src= 'js/jquery-3.1.1.min.js' type='text/javascript'></script>
-    <script src= 'js/jquery.ajax-cross-origin.min.js' type="text/javascript"></script>
+    <script src= '/js/jquery.ajax-cross-origin.min.js' type="text/javascript"></script>
     <script src= 'js/yui-min.js' type="text/javascript"></script>
 
     <style type='text/css'>
@@ -43,7 +43,7 @@
     </div>
 
     <script type='text/javascript'>
-      if (typeof YQL == 'function') { 
+      if (typeof YQL() == 'function') { 
         alert('Yeah');
        }elses{
         alert('Nope');
