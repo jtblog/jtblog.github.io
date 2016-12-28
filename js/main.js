@@ -3,8 +3,8 @@ window.onload = function(){
 }  
 
 function run(){
-	if (typeof YUI !== 'undefined' && $.isFunction(YUI)) {
-	    alert('Yeah');
+	if (typeof YQL == 'function') { 
+	  alert('Yeah');
 	 }elses{
 	 	alert('Nope');
 	 }
