@@ -63,8 +63,8 @@
                 #pagewrap, header, #content, #middle, #sidebar{
                         border: solid 2px #ccc;
                 }
-		/*
-		@font-face {
+    /*
+    @font-face {
                     font-family: 'FORTE';
                     src: url('https://jtob91.github.io/jtnng_blogspot_com/Fonts/FORTE.TTF');
                   }
@@ -80,12 +80,12 @@
                     font-family: 'Viner Hand ITC Regular';
                     src: url('https://jtob91.github.io/jtnng_blogspot_com/Fonts/VINERITC.TTF');
                   }
-		*/
+    */
         </style>        
-	  
-	  
-	  <script type='text/javascript'>
-		    //Parses returned response and extracts
+    
+    
+    <script type='text/javascript'>
+        //Parses returned response and extracts
             // the title, links, and text of each news story.
                 function top_stories(o){
                   var items = o.query.results.item;
@@ -98,8 +98,8 @@
                     var link = items[i].link;
                     var desc = items[i].description;
                     output += 
-			  "<div><a href='" + link + "'>" + title + "</a></div>" + desc + "<hr/>";// +
-				  /*
+        "<div><a href='" + link + "'>" + title + "</a></div>" + desc + "<hr/>";// +
+          /*
                             "<div style='width: 100%; height: fit-content; align-content: center'>" +
                             "<ins class='adsbygoogle'" +
                             "style='display:inline-block;width:320px;height:100px'" +
@@ -108,9 +108,9 @@
                             "<script>" +
                             "(adsbygoogle = window.adsbygoogle || []).push({});" +
                             "<" + "/script>" + 
-			    "<script async src='http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js'><" + "/script>" +
+          "<script async src='http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js'><" + "/script>" +
                             "</div><hr/>";
-			    	*/
+            */
                   }
                   // Place news stories in div tag
                   document.getElementById('results').innerHTML = output;
@@ -130,7 +130,7 @@
             <section>
                 <div id="results"></div>
             </section>
-			
+      
             <footer>
                     <div id="fp">© - 2017 - A Joseph T. Obagbemisoye's</div>
             </footer>
@@ -139,7 +139,7 @@
         
         <script src='https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20rss%20where%20url%3D%22http%3A%2F%2Fwww.lindaikejisblog.com%2Ffeeds%2Fposts%2Fdefault%22&format=json&diagnostics=true&callback=top_stories'></script>
         <script src='https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20rss%20where%20url%3D%22http%3A%2F%2Fpunchng.com%2Ffeed%2F%22&format=json&diagnostics=true&callback=top_stories'></script>
-	    
+      
         
     </body>
 </html>
