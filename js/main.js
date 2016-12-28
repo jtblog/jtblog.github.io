@@ -3,12 +3,7 @@ window.onload = function(){
 }  
 
 function run(){
-
-	if ($.isFunction(YQL)) { 
 	  alert('Yeah');
-	 }elses{
-	 	alert('Nope');
-	 }
 }
 
 function YQL(){
