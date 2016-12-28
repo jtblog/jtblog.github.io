@@ -1,0 +1,145 @@
+<html>
+  <head>
+        <title>Welcome to Joseph T. Obagbemisoye's blog</title>
+        <meta content="120" http-equiv="refresh">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <!--
+        <script src="js/jquery.ajax-cross-origin.min.js" type="text/javascript"></script>
+        -->
+        <script type='text/javascript' src="https://dl.dropbox.com/s/7ebbetzkij62tr5/jquery-3.1.1.min.js"></script>
+        <script type='text/javascript' src="https://dl.dropbox.com/s/ihzl3wwm5buif65/jquery.ajax-cross-origin.min.js"></script>
+        
+        <style type="text/css">
+                body { 
+                }
+                /* STRUCTURE */
+                #results{ 
+                    width: 100%; 
+                    margin-left: 0px;
+                    border: 1px solid gray;
+                    padding: 0px;
+                    height: fit-content;
+                    overflow: auto;
+                }
+                
+                #pagewrap {
+                        width: 100%;
+                        margin: 0px 5px 0px 0px;
+                }
+                header {
+                        height: fit-content;
+                        padding: 0 5px;
+                        text-align:center;
+                }
+                #middle {
+                    /* Account for margins + border values */
+                        float: left;
+                        padding: 0px 5px;
+                        margin: 5px 0px 5px 0px;
+                        position:fixed;
+                        left: 10px;
+                }
+                #sidebar {
+                        float: right;
+                        margin: 0px 0px 5px 0px;
+                        position:fixed;
+                        right: 10px;
+                        width: 160px;
+                }
+                footer {
+                    height: fit-content;
+                    background-color: #F5F5F5;
+                    position:fixed; bottom:0; 
+                    text-align:center;
+                    width: 100%;
+                    font-size: 20px;
+                }
+                #sidebar {
+                        background: #f0efef;
+                }
+                
+                #pagewrap, header, #content, #middle, #sidebar{
+                        border: solid 2px #ccc;
+                }
+		/*
+		@font-face {
+                    font-family: 'FORTE';
+                    src: url('https://jtob91.github.io/jtnng_blogspot_com/Fonts/FORTE.TTF');
+                  }
+                @font-face {
+                    font-family: 'Comic Sans MS';
+                    src: url('https://jtob91.github.io/jtnng_blogspot_com/Fonts/comic.ttf');
+                  }
+                @font-face {
+                    font-family: 'Pristina';
+                    src: url('https://jtob91.github.io/jtnng_blogspot_com/Fonts/PRISTINA.TTF');
+                  }
+                @font-face {
+                    font-family: 'Viner Hand ITC Regular';
+                    src: url('https://jtob91.github.io/jtnng_blogspot_com/Fonts/VINERITC.TTF');
+                  }
+		*/
+        </style>        
+	  
+	  
+	  <script type='text/javascript'>
+		    //Parses returned response and extracts
+            // the title, links, and text of each news story.
+                function top_stories(o){
+                  var items = o.query.results.item;
+                  var output = '';
+                  var no_items=items.length;
+                  
+                  output = document.getElementById('results').innerHTML;
+                  for(var i = 0; i<no_items; i++){
+                    var title = items[i].title;
+                    var link = items[i].link;
+                    var desc = items[i].description;
+                    output += 
+			  "<div><a href='" + link + "'>" + title + "</a></div>" + desc + "<hr/>";// +
+				  /*
+                            "<div style='width: 100%; height: fit-content; align-content: center'>" +
+                            "<ins class='adsbygoogle'" +
+                            "style='display:inline-block;width:320px;height:100px'" +
+                            "data-ad-client='ca-pub-5462441746182858'" +
+                            "data-ad-slot='1234567890'></ins>" +
+                            "<script>" +
+                            "(adsbygoogle = window.adsbygoogle || []).push({});" +
+                            "<" + "/script>" + 
+			    "<script async src='http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js'><" + "/script>" +
+                            "</div><hr/>";
+			    	*/
+                  }
+                  // Place news stories in div tag
+                  document.getElementById('results').innerHTML = output;
+                  
+                }
+            </script> 
+
+    </head>
+    
+    <body id="j">
+        <div id="pagewrap">
+
+            <header>
+                    <h1>JT Blog</h1>
+            </header>
+
+            <section>
+                <div id="results"></div>
+            </section>
+			
+            <footer>
+                    <div id="fp">© - 2017 - A Joseph T. Obagbemisoye's</div>
+            </footer>
+
+        </div>
+        
+        <script src='https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20rss%20where%20url%3D%22http%3A%2F%2Fwww.lindaikejisblog.com%2Ffeeds%2Fposts%2Fdefault%22&format=json&diagnostics=true&callback=top_stories'></script>
+        <script src='https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20rss%20where%20url%3D%22http%3A%2F%2Fpunchng.com%2Ffeed%2F%22&format=json&diagnostics=true&callback=top_stories'></script>
+	    
+        
+    </body>
+</html>
