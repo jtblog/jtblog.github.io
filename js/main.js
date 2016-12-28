@@ -9,3 +9,7 @@ function run(){
 	 	alert('Nope');
 	 }
 }
+
+function YQL(){
+	
+}
