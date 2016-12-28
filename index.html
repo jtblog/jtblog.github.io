@@ -16,7 +16,10 @@
     <script src= 'js/jquery-3.1.1.min.js' type='text/javascript'></script>
     <script src= 'js/jquery.ajax-cross-origin.min.js' type="text/javascript"></script>
     <script src= 'js/main.js' type='text/javascript'></script>
-    <script src= 'js/yui-min.js' type="text/javascript">
+    <script src= 'js/yui-min.js' type="text/javascript"></script>
+    
+
+    <script type="text/javascript">
       YUI().use('yql', function(Y) {
 
             var q = Y.YQL('select * from rss where url="http://punchng.com/feed/"', function(r) {
@@ -38,15 +41,6 @@
           
             q.send();
         });
-    </script>
-    
-
-    <script type="text/javascript">
-
-    </script>
-
-    <script type="text/javascript">
-
     </script>
 
     <title>Welcome to Joseph T. Obagbemisoye's blog</title>
