@@ -18,7 +18,7 @@
 	  <script type='text/javascript'>
 		    //Parses returned response and extracts
             // the title, links, and text of each news story.
-                function top_stories(o){
+                function punchnews(o){
                   var items = o.query.results.item;
                   var output = '';
                   var no_items=items.length;
@@ -29,8 +29,9 @@
                     var link = items[i].link;
                     var desc = items[i].description;
 					var indx = desc.indexOf("[&#8230;]");
+					
                     output += 
-			  "<div><a href= post.html>" + title + "</a></div>" + desc.slice(0, indx) + "... <hr/>";// +
+			  "<div><a id = '" + link +"' onclick= 'topunchpost()'>" + title + "</a></div>" + desc.slice(0, indx) + "... <hr/>";// +
 				  /*
                             "<div style='width: 100%; height: fit-content; align-content: center'>" +
                             "<ins class='adsbygoogle'" +
@@ -46,8 +47,17 @@
                   }
                   // Place news stories in div tag
                   document.getElementById('results').innerHTML = output;
-                  
                 }
+				
+				function topunchpost(){
+					event = event || window.event;
+                    var target = event.target || event.srcElement;
+                    var id = target.id;
+					
+					window.location.href = "post.html" + "?link='" + id + "'";
+					
+				}
+				
             </script> 
 			
     </head>
@@ -63,23 +73,23 @@
     <div id="content-wrapper">
       <div class="inner clearfix">
         <section id="main-content">
-          <p id="results">
-    
+          <p id="results" >
+			
           </p>
         </section>
 
         <aside id="sidebar">
 		  <p id="insider">
-
-          </p>
+			
+		  </p>
         </aside>
       </div>
     </div>
         <!--
-        <script src='https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20rss%20where%20url%3D%22http%3A%2F%2Fwww.lindaikejisblog.com%2Ffeeds%2Fposts%2Fdefault%22&format=json&diagnostics=true&callback=top_stories'></script>
+        <script src='https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20rss%20where%20url%3D%22http%3A%2F%2Fwww.lindaikejisblog.com%2Ffeeds%2Fposts%2Fdefault%22&format=json&diagnostics=true&callback=punchnews'></script>
 	    -->
 		
-        <script src='https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20rss%20where%20url%3D%22http%3A%2F%2Fpunchng.com%2Ffeed%2F%22&format=json&diagnostics=true&callback=top_stories'></script>
+        <script src='https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20rss%20where%20url%3D%22http%3A%2F%2Fpunchng.com%2Ffeed%2F%22&format=json&diagnostics=true&callback=punchnews'></script>
 	    
       <footer style="width:100%; text-align: center; bottom:0;">© - 2017 - A Joseph T. Obagbemisoye's</footer>  
   <!--      
