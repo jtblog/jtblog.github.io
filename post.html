@@ -15,6 +15,66 @@
 	<script type='text/javascript' src="https://dl.dropbox.com/s/ihzl3wwm5buif65/jquery.ajax-cross-origin.min.js"></script>
 	<script type='text/javascript' src="https://dl.dropbox.com/s/7dnw1vnj7mjnsko/yui-min.js"></script>
 
+	<script type='text/javascript'>
+            var qS = decodeURIComponent(window.location.search);
+            var link = qS.slice(7, qS.length - 1);
+            
+            function res(o){
+                var body = o.query.results.body;
+                //if(body.length > 1){
+                    //var data = filterData(data.results[0]);
+                    //container.html(data);
+                    //var p = getValues(body, 'h6');
+                    var data = JSON.stringify(body);
+                    //$('#results').html(data);
+                //} else {
+                    //var errormsg = '<p>Error: can not load the page.</p>';
+                    //$('#results').html(errormsg);
+                //}
+            }
+            
+            function getObjects(obj, key, val) {
+                var objects = [];
+                for (var i in obj) {
+                    if (!obj.hasOwnProperty(i)) continue;
+                    if (typeof obj[i] == 'object') {
+                        objects = objects.concat(getObjects(obj[i], key, val));
+                    } else if (i == key && obj[key] == val) {
+                        objects.push(obj);
+                    }
+                }
+                return objects;
+            }
+            
+            function getValues(obj, key) {
+                var objects = [];
+                for (var i in obj) {
+                    if (!obj.hasOwnProperty(i)) continue;
+                    if (typeof obj[i] == 'object') {
+                        objects = objects.concat(getValues(obj[i], key));
+                    } else if (i == key) {
+                        objects.push(obj[i]);
+                    }
+                }
+                return objects;
+            }
+
+            //return an array of keys that match on a certain value
+            function getKeys(obj, val) {
+                var objects = [];
+                for (var i in obj) {
+                    if (!obj.hasOwnProperty(i)) continue;
+                    if (typeof obj[i] == 'object') {
+                        objects = objects.concat(getKeys(obj[i], val));
+                    } else if (obj[i] == val) {
+                        objects.push(i);
+                    }
+                }
+                return objects;
+            }
+              
+	</script>
+
   </head>
 
   <body id="j">
@@ -45,35 +105,17 @@
 	<script src='https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20rss%20where%20url%3D%22http%3A%2F%2Fpunchng.com%2Ffeed%2F%22&format=json&diagnostics=true&callback=top_stories'></script>
     -->
 	<footer style="width:100%; text-align: center; bottom:0;">© - 2017 - A Joseph T. Obagbemisoye's</footer>  
-	<!--      
-	<script type="text/javascript">
-
-	YUI().use('yql', 
-
-	function(Y) {
-
-    var q = Y.YQL('select * from rss where url="http://punchng.com/feed/"', function(r) {
-	var items = r.query.results.item;
-	var output = '';
-	var no_items=items.length;
-
-	output = document.getElementById('results').innerHTML;
-	for(var i = 0; i<no_items; i++){
-	var title = items[i].title;
-	var link = items[i].link;
-	var desc = items[i].description;
-	output += 
-	"<div><a href='" + link + "'>" + title + "</a></div>" + desc + "<hr/>";
-	}
-
-	document.getElementById('insider').innerHTML = output;
-    });
-
-    q.send();
-
-	});
-
+	<script type='text/javascript'>
+            link = link.replace("'", "");
+            
+            var s = document.createElement("script");
+            s.type = "text/javascript";
+            s.src = "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20html%20where%20url%3D'" +
+                            encodeURIComponent(link) + "'&format=json&callback=res";
+            //s.innerHTML = "alert('Bingo')";
+            //
+            document.body.appendChild(s);
+            
 	</script>
-	-->
   </body>
 </html>
