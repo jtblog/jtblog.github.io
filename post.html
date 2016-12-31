@@ -26,16 +26,42 @@
                     //container.html(data);
                     //var p = getValues(body, 'h6');
                     var data = JSON.stringify(body);
-                    var data = data.slice(data.indexOf('"p":[{') + 5, data.length);
-                    var data = data.slice(0, data.indexOf('"}]') + 3);
-                    var data = data.slice(0, data.indexOf('Copyright'));
-                    var data = data.slice(0, data.lastIndexOf(',{"style"'));
+                     data = data.slice(data.indexOf('"p":[{') + 5, data.length);
+                     data = data.slice(0, data.indexOf('"}]') + 3);
+                     data = data.slice(0, data.indexOf('Copyright'));
+                     data = data.slice(0, data.lastIndexOf(',{"style"'));
+                    
+                    var i0 = data.indexOf('"strong":{"em":');
+                    var i1 = data.indexOf('"em":{"strong":');
+                    var i2 = data.indexOf('"content":');
+                    
+                    if(i0 > -1 && i0 < i2){
+                        data = data.slice(i0 + 16, data.length);
+                    }else if(i1 > -1 && i1 < i2){
+                        data = data.slice(i1 + 16, data.length);
+                    }else if(i2 > -1){
+                        data = data.slice(i2 + 11, data.length);
+                    }
+                    
+                    var i3 = data.indexOf('"');
+                    //var str = data.substring(0, i3);
+                    //data = data.slice(i3, data.length);
+                    
+                    //$('#results').html(data);
                     $('#results').html("Joseph T. Obagbemisoye's is working on it as of now");
                 //} else {
                     //var errormsg = '<p>Error: can not load the page.</p>';
                     //$('#results').html(errormsg);
                 //}
             }
+            
+            function JSONize(str) {
+                return str
+                  // wrap keys without quote with valid double quote
+                  .replace(/([\$\w]+)\s*:/g, function(_, $1){return '"'+$1+'":'})    
+                  // replacing single quote wrapped ones to double quote 
+                  .replace(/'([^']+)'/g, function(_, $1){return '"'+$1+'"'})         
+              }
             
             function getObjects(obj, key, val) {
                 var objects = [];
