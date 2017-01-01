@@ -35,17 +35,56 @@
                     var i1 = data.indexOf('"em":{"strong":');
                     var i2 = data.indexOf('"content":');
                     
+                    var d_str_em = {};
+                    var contents = {};
+                    var w = "";
+                    
+                    alert(i0 + "-" + i1 + "-" + i2);
+                    
                     if(i0 > -1 && i0 < i2){
-                        data = data.slice(i0 + 16, data.length);
+                            data = data.slice(i0 + 16, data.length);
+                            var i3 = data.indexOf('"');
+                            w = data.slice(0, i3);
+                            data = data.slice(i3, data.length);
                     }else if(i1 > -1 && i1 < i2){
-                        data = data.slice(i1 + 16, data.length);
-                    }else if(i2 > -1){
-                        data = data.slice(i2 + 11, data.length);
+                            data = data.slice(i0 + 16, data.length);
+                            var i3 = data.indexOf('"');
+                            w = data.slice(0, i3);
+                            data = data.slice(i3, data.length);
+                        }
+                    
+                    /*
+                    do {
+                        if(i0 > -1 && i0 < i2){
+                            data = data.slice(i0 + 16, data.length);
+                            var i3 = data.indexOf(('""}' || '"}'));
+                            w = data.substring(0, i3);
+                            d_str_em.push(w);
+                            data = data.slice(i3, data.length);
+                        }else if(i1 > -1 && i1 < i2){
+                            data = data.slice(i1 + 16, data.length);
+                            var i3 = data.indexOf(('""}' || '"}'));
+                            w = data.substring(0, i3);
+                            d_str_em.push(w);
+                            data = data.slice(i3, data.length);
+                        }else if(i2 > -1){
+                            data = data.slice(i2 + 11, data.length);
+                            var i3 = data.indexOf(('""}' || '"}'));
+                            w = data.substring(0, i3);
+                            contents.push(w);
+                            data = data.slice(i3, data.length);
+                        }
+                            i0 = data.indexOf('"strong":{"em":');
+                            i1 = data.indexOf('"em":{"strong":');
+                            i2 = data.indexOf('"content":');
+                            output += w;
                     }
                     
-                    var i3 = data.indexOf('"');
-                    //var str = data.substring(0, i3);
-                    //data = data.slice(i3, data.length);
+                    var output = "";
+                    for (var i = 0, len = contents.length; i < len; i++) {
+                        output += "<div><p>" + contents[i] + "</p><hr/>";
+                      }
+                      */
                     
                     //$('#results').html(data);
                     $('#results').html("Joseph T. Obagbemisoye's is working on it as of now");
