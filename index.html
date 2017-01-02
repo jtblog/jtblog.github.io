@@ -29,8 +29,8 @@
                     var link = items[i].link;
                     var desc = items[i].description;
                     var indx = desc.indexOf("[&#8230;]");
-                    output += "<div><p id = '" + link +"' onclick= 'topunchpost()' style='color: blue; text-decoration: underline'>" + 
-                            title + "</p></div>" + desc.slice(0, indx) + "... <hr/>";// +
+                    output += "<div><p id = '" + link + "' onclick= 'topunchpost()' style='color: blue; text-decoration: underline'>" + 
+                            title + "</p>" + desc.slice(0, indx) + "... </div><hr/>";// +
           /*
                             "<div style='width: 100%; height: fit-content; align-content: center'>" +
                             "<ins class='adsbygoogle'" +
@@ -47,7 +47,6 @@
                   // Place news stories in div tag
                   document.getElementById('results').innerHTML = output;
                 }
-        
     function topunchpost(){
                     event = event || window.event;
                     var target = event.target || event.srcElement;
