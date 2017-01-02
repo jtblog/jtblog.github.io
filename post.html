@@ -55,6 +55,12 @@
                 }while(i2 > -1 || i3 > -1)
                
                 $('#results').html(data_i + d1);
+                if($('#results').html() == ""){
+                    var t = "Error loading page working on it right away <br/><br/>" +
+                            "-Meanwhile you may check your internet connection or<br/><br/>" +
+                            "-Our news provider might be busy on their site. You can always check back";
+                    $('#results').html(t); 
+                };
             }
             
     </script>
