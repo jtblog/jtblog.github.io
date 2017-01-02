@@ -18,59 +18,45 @@
             
             function res(o){
                 var data = JSON.stringify(o);
-                
-                var i0 = data.indexOf('<p');
-                data = data.slice(i0, data.length);
-                var i1 = data.lastIndexOf('</p>');
-                data = data.slice(0, i1 + 3);
-                var i2 = data.indexOf("Copyright PUNCH");
-                data = data.slice(0, i2);
-                data = data.slice(0, data.lastIndexOf('<p'));
                 data = data.replace(/\\n/g, "");
+                data = data.replace(/\\/g, "");
                 
-                $('#results').html(data);
+                var d0 = data;
+                var d1 = data;
+                
+                
+                //Extract Image
+                var i00 = data.indexOf('<div class="td-post-featured-image">');
+                var data_i = "";
+                if(i00 > -1){
+                    data_i = data.slice(i00, data.length);
+                    data_i = data_i.slice(0, data.indexOf('</div>') + 1)
+                    data_i = data_i.replace('<script async="async" src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"><' + '/script>', '');
+                }else{
+                    data_i = data_i;
+                }
+                
+                //Main text
+                var i0 = d1.indexOf('<p style="text-align: justify;">');
+                d1 = d1.slice(i0, d1.length);
+                
+                var i2 = d1.indexOf('Copyright PUNCH');
+                var i3 = d1.indexOf('[email&nbsp;protected]');
+                do{
+                    if(i2 > -1){
+                        d1 = d1.slice(0, i2);
+                    }
+                    if(i3 > -1){
+                        d1 = d1.slice(0, i3);
+                    }
+                    d1 = d1.slice(0, d1.lastIndexOf('<p'));
+                    i2 = d1.indexOf('Copyright PUNCH');
+                    i3 = d1.indexOf('[email&nbsp;protected]');
+                }while(i2 > -1 || i3 > -1)
+               
+                $('#results').html(data_i + d1);
             }
             
-            function getObjects(obj, key, val) {
-                var objects = [];
-                for (var i in obj) {
-                    if (!obj.hasOwnProperty(i)) continue;
-                    if (typeof obj[i] == 'object') {
-                        objects = objects.concat(getObjects(obj[i], key, val));
-                    } else if (i == key && obj[key] == val) {
-                        objects.push(obj);
-                    }
-                }
-                return objects;
-            }
-            
-            function getValues(obj, key) {
-                var objects = [];
-                for (var i in obj) {
-                    if (!obj.hasOwnProperty(i)) continue;
-                    if (typeof obj[i] == 'object') {
-                        objects = objects.concat(getValues(obj[i], key));
-                    } else if (i == key) {
-                        objects.push(obj[i]);
-                    }
-                }
-                return objects;
-            }
-
-            //return an array of keys that match on a certain value
-            function getKeys(obj, val) {
-                var objects = [];
-                for (var i in obj) {
-                    if (!obj.hasOwnProperty(i)) continue;
-                    if (typeof obj[i] == 'object') {
-                        objects = objects.concat(getKeys(obj[i], val));
-                    } else if (obj[i] == val) {
-                        objects.push(i);
-                    }
-                }
-                return objects;
-            }
-              
     </script>
 
   </head>
