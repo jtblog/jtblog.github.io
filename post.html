@@ -21,40 +21,17 @@
                 data = data.replace(/\\n/g, "");
                 data = data.replace(/\\/g, "");
                 
-                var d0 = data;
-                var d1 = data;
+                var i0 = data.indexOf('<!-- .entry-header -->');  
+                var i1 = data.indexOf('<!-- .entry-content -->'); 
                 
+                data = data.slice(i0, i1);
+                data = data.replace("All rights reserved. This material, and other digital content on this website" +
+                        ", may not be reproduced, published, broadcast, rewritten or redistributed in whole" + 
+                        " or in part without prior express written permission from PUNCH. ", "");
+                data = data.replace("Copyright PUNCH.", "");
+                data = data.replace("<strong>Contact: </strong>", "");
                 
-                //Extract Image
-                var i00 = data.indexOf('<div class="td-post-featured-image">');
-                var data_i = "";
-                if(i00 > -1){
-                    data_i = data.slice(i00, data.length);
-                    data_i = data_i.slice(0, data.indexOf('</div>') + 1)
-                    data_i = data_i.replace('<script async="async" src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"><' + '/script>', '');
-                }else{
-                    data_i = data_i;
-                }
-                
-                //Main text
-                var i0 = d1.indexOf('<p style="text-align: justify;">');
-                d1 = d1.slice(i0, d1.length);
-                
-                var i2 = d1.indexOf('Copyright PUNCH');
-                var i3 = d1.indexOf('<a class="__cf_email');
-                do{
-                    if(i2 > -1){
-                        d1 = d1.slice(0, i2);
-                    }
-                    if(i3 > -1){
-                        d1 = d1.slice(0, i3);
-                    }
-                    d1 = d1.slice(0, d1.lastIndexOf('<p'));
-                    i2 = d1.indexOf('Copyright PUNCH');
-                    i3 = d1.indexOf('[email&nbsp;protected]');
-                }while(i2 > -1 || i3 > -1)
-               
-                $('#results').html(data_i + d1);
+                $('#results').html(data);
                 if($('#results').html() == ""){
                     var t = "Error loading page working on it right away <br/><br/>" +
                             "-Meanwhile you may check your internet connection or<br/><br/>" +
