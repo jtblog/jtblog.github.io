@@ -32,13 +32,14 @@
                 data = data.replace("Copyright PUNCH.", "");
                 data = data.replace("<strong>Contact: </strong>", "");
                 
+                data = data.replace('[email&nbsp;protected]', 'post.html?link=%27');
                 data = data.replace('http://punchng.com/', 'post.html?link=%27');
                 data = data.replace('/', '%27');
                 
-        var i2 = tle.indexOf('<h1 class="post_title">');
+                var i2 = tle.indexOf('<h1 class="post_title">');
                 tle = tle.slice(i2, tle.length);
                 var i3 = tle.indexOf("<div");
-        tle = tle.slice(0, i3);
+                tle = tle.slice(0, i3);
                 
                 //document.title = title;
                 
