@@ -20,7 +20,7 @@
                 var data = JSON.stringify(o);
                 data = data.replace(/\\n/g, "");
                 data = data.replace(/\\/g, "");
-				var tle = data;
+                var tle = data;
                 
                 var i0 = data.indexOf('<!-- .entry-header -->');  
                 var i1 = data.indexOf('<!-- .entry-content -->'); 
@@ -31,13 +31,20 @@
                         " or in part without prior express written permission from PUNCH. ", "");
                 data = data.replace("Copyright PUNCH.", "");
                 data = data.replace("<strong>Contact: </strong>", "");
-				
-				//var i2 = tle.indexOf("<title>");
-				//var i3 = tle.indexOf("</title>" + 8);
-				//tle = tle.slice(i2, i3);
                 
-				//$('#insider').html(tle);
-                $('#results').html(data);
+                data = data.replace('http://punchng.com/', 'post.html?link=%27');
+                data = data.replace('/', '%27');
+                
+        var i2 = tle.indexOf('<h1 class="post_title">');
+                tle = tle.slice(i2, tle.length);
+                var i3 = tle.indexOf("<div");
+        tle = tle.slice(0, i3);
+                
+                //document.title = title;
+                
+        //$('#insider').html(tle);
+                
+                $('#results').html(tle + data);
                 if($('#results').html() == ""){
                     var t = "Error loading page working on it right away <br/><br/>" +
                             "-Meanwhile you may check your internet connection or<br/><br/>" +
