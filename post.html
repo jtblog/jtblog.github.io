@@ -26,9 +26,9 @@
                 var i1 = data.indexOf('<!-- .entry-content -->'); 
                 
                 data = data.slice(i0, i1);
-                data = data.replace(/\All rights reserved. This material, and other digital content on this website" +
+                data = data.replace("All rights reserved. This material, and other digital content on this website" +
                         ", may not be reproduced, published, broadcast, rewritten or redistributed in whole" + 
-                        " or in part without prior express written permission from PUNCH. /g, '');
+                        " or in part without prior express written permission from PUNCH. ", "");
                 data = data.replace("Copyright PUNCH.", "");
                 data = data.replace("<strong>Contact: </strong>", "");
 
@@ -40,11 +40,12 @@
                 var i3 = tle.indexOf("<div");
                 tle = tle.slice(0, i3);
                 
+                var c_box = '<textarea rows="5" style="width:100%">Comment Here</textarea>';
                 //document.title = title;
                 
         //$('#insider').html(tle);
                 
-                $('#results').html(tle + data);
+                $('#results').html(tle + data + c_box);
                 if($('#results').html() == ""){
                     var t = "Error loading page working on it right away <br/><br/>" +
                             "-Meanwhile you may check your internet connection or<br/><br/>" +
@@ -59,7 +60,7 @@
 
   <body id="j">
     <header>
-      <div class="inner">
+        <div class="inner">
         <h1>JT BLOG</h1>
         <h2>A Joseph T. Obagbemisoye's</h2>
       </div>
