@@ -31,10 +31,10 @@
                         " or in part without prior express written permission from PUNCH. ", "");
                 data = data.replace("Copyright PUNCH.", "");
                 data = data.replace("<strong>Contact: </strong>", "");
-                
-                data = data.replace('[email&nbsp;protected]', 'post.html?link=%27');
-                data = data.replace('http://punchng.com/', 'post.html?link=%27');
-                data = data.replace('/', '%27');
+
+                data = data.replace(/\[email&nbsp;protected]/g, 'post.html?link=%27');
+                data = data.replace(/\punchng.com/g, 'post.html?link=');
+                data = data.replace(/\//g, '%27');
                 
                 var i2 = tle.indexOf('<h1 class="post_title">');
                 tle = tle.slice(i2, tle.length);
