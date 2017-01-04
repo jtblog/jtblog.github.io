@@ -26,8 +26,12 @@
                     var link = items[i].link;
                     var desc = items[i].description;
                     var indx = desc.indexOf("[&#8230;]");
-                    output += "<div><p id = '" + link + "' onclick= 'topunchpost()' style='color: blue; text-decoration: underline'>" + 
-                            title + "</p>" + desc.slice(0, indx) + "... </div><hr/>";// +
+                    var r_desc = 'The post <a rel="nofollow" href="http://punchng.com/punch-newspapers/">Punch Newspapers</a>' +
+                        ' appeared first on <a rel="nofollow" href="http://punchng.com">Punch Newspapers</a>.';
+                    var l_desc = 'http://punchng.com/punch-newspapers/';
+                    var t_desc = 'Punch Newspapers';
+                    output += "<div><p id = '" + link.replace(l_desc, '') + "' onclick= 'topunchpost()' style='color: blue; text-decoration: underline'>" + 
+                            title.replace(t_desc, '') + "</p>" + desc.slice(0, indx).replace(r_desc, '') + "... </div><hr/>";// +
           /*
                             "<div style='width: 100%; height: fit-content; align-content: center'>" +
                             "<ins class='adsbygoogle'" +
