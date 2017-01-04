@@ -26,9 +26,9 @@
                 var i1 = data.indexOf('<!-- .entry-content -->'); 
                 
                 data = data.slice(i0, i1);
-                data = data.replace("All rights reserved. This material, and other digital content on this website" +
+                data = data.replace(/\All rights reserved. This material, and other digital content on this website" +
                         ", may not be reproduced, published, broadcast, rewritten or redistributed in whole" + 
-                        " or in part without prior express written permission from PUNCH. ", "");
+                        " or in part without prior express written permission from PUNCH. /g, '');
                 data = data.replace("Copyright PUNCH.", "");
                 data = data.replace("<strong>Contact: </strong>", "");
 
