@@ -36,9 +36,39 @@ li a:hover {
 }
 		</style>
 
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '371244233242046',
+      xfbml      : true,
+      version    : 'v2.8'
+    });
+    FB.AppEvents.logPageView();
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
+    
+		
         <script type='text/javascript' src="https://dl.dropbox.com/s/7ebbetzkij62tr5/jquery-3.1.1.min.js"></script>
         <script type='text/javascript' src="https://dl.dropbox.com/s/ihzl3wwm5buif65/jquery.ajax-cross-origin.min.js"></script>
   <script type='text/javascript' src="https://dl.dropbox.com/s/7dnw1vnj7mjnsko/yui-min.js"></script>
+  
+<script>
+  function share() {
+  FB.ui({
+    method: 'share',
+    display: 'popup',
+    href: 'https://developers.facebook.com/docs/',
+  }, function(response){});
+}
+</script>
   
     <script type='text/javascript'>
         //Parses returned response and extracts
@@ -99,7 +129,7 @@ li a:hover {
 		  </nav>
 		  
       <div class="inner">
-        <h1>JT BLOG</h1>
+        <h1 onclick="share()">JT BLOG</h1>
         <h2>A Joseph T. Obagbemisoye's</h2>
       </div>
     </header>
