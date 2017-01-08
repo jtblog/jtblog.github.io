@@ -62,7 +62,7 @@ li a:hover {
   
 <script>
   function fshare() {
-  var url = window.location;
+  var url = window.location.href;
   FB.ui({
     method: 'share',
     display: 'popup',
@@ -139,7 +139,7 @@ li a:hover {
 		<li></li>
 		<li></li>
 		<li></li>
-		<li style="float: right"><img onclick="fshare()" src="images/facebook-share-button.png" alt="Facebook share" style="width:128px;height:32px;"></li>
+		<li style="float: right"><img onclick='fshare()' src="images/facebook-share-button.png" alt="Facebook share" style="width:128px;height:32px;"></li>
 	  </ul>
 
     <div id="content-wrapper">
