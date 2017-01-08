@@ -8,7 +8,7 @@
         <link rel="stylesheet" href='css/style.css' media="screen" type="text/css">
         <link rel="stylesheet" href='css/print.css' media="print" type="text/css">
         <style>
-		  ul {
+		  #list0 {
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -61,11 +61,12 @@ li a:hover {
   <script type='text/javascript' src="https://dl.dropbox.com/s/7dnw1vnj7mjnsko/yui-min.js"></script>
   
 <script>
-  function share() {
+  function fshare() {
+  var url = window.location;
   FB.ui({
     method: 'share',
     display: 'popup',
-    href: 'https://developers.facebook.com/docs/',
+    href: url,
   }, function(response){});
 }
 </script>
@@ -119,7 +120,7 @@ li a:hover {
     
     <body id="j">
 	  <nav>
-		<ul>
+		<ul id="list0">
 		  <li><a href="index.html">Home</a></li>
 		  <li><a href="vout.asp">Voice Out</a></li>
 		  <li><a href="contact.html">Contact</a></li>
@@ -132,7 +133,14 @@ li a:hover {
         <h1>JT BLOG</h1>
         <h2>A Joseph T. Obagbemisoye's</h2>
       </div>
+		  
     </header>
+	  <ul id="list1">
+		<li></li>
+		<li></li>
+		<li></li>
+		<li style="float: right"><img onclick="fshare()" src="images/facebook-share-button.png" alt="Facebook share" style="width:128px;height:32px;"></li>
+	  </ul>
 
     <div id="content-wrapper">
       <div class="inner clearfix">
