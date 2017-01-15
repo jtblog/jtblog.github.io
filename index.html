@@ -107,65 +107,12 @@
                 }
         
             </script> 
-
-            <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-            <script type="text/javascript" src="https://www.google.com/jsapi?key=ABQIAAAAioqKBlOgCX6F4djiKFFc0BTOvTWE82m9WxBio5_ZjyJDzVNTRxSYQUkhljjQyRhHLMZfMc7bff2gOw"></script>
-    
-            <script type="text/javascript">
-                // Load the Google Ads API
-                google.load("ads","1");
-                
-                // Init globals
-                google_ad_client  = "pub-5462441746182858";
-                google_ad_channel = "9653053974";
-                
-                gAds  = new Object(); // This is going to let us keep track of our ads.
-                
-                function initPage() {
-
-                  // Google cancelled this program...what a bummer
-                  //loadLeader("advertising, get rich quick, scams, internet radio");
-
-                  // Put a delay in between the two ad spots just for sanity.
-                  setTimeout (function (){
-                    loadSide("free stuff, music, slacker radio");
-                  }, 1000);
-                }
-                
-                function doAjaxAdsense(opts, container) {
-                  // If the ad is already on the page, we just refresh it, otherwise, we create it.
-                  var spotId  = opts.format + "_" + container.id;
-                  if (gAds[spotId]) {
-                        gAds[spotId].refresh({'hints' : opts.hints, 'ad_channel' : opts.ad_channel});
-                       } else {
-                        gAds[spotId] = new google.ads.Ad(google_ad_client, container, opts);
-                       }
-                }
-                // Set up params for loading the leaderboard spot
-                /*
-                function loadLeader(hints) {
-                  doAjaxAdsense({
-                    'format'    : google.ads.LEADERBOARD,
-                    'ad_slot'   : "8320962821",
-                    hints     : hints,
-                    'ad_channel'  : google_ad_channel
-                  }, document.getElementById('ad_leader'));
-                }
-                */
-                // Set up params for loading the side spot
-                function loadSide(hints) {
-                  doAjaxAdsense({
-                    'format'    : "728x90",
-                    'ad_slot'   : "6883313576",
-                    hints     : hints,
-                    'ad_channel'  : google_ad_channel
-                  }, document.getElementById('ad_side'));
-                }
-                
-                // Set the callback for the Google API load command
-                google.setOnLoadCallback(function() {});
-              </script>
-      
+            
+			<!--
+              <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+              <script type="text/javascript" src="https://www.google.com/jsapi?key=ABQIAAAAioqKBlOgCX6F4djiKFFc0BTOvTWE82m9WxBio5_ZjyJDzVNTRxSYQUkhljjQyRhHLMZfMc7bff2gOw"></script>
+            -->
+			
     </head>
     
     <body id="j">
@@ -202,16 +149,19 @@
             <!-- Adtall - Ad Display Code -->
           </div>
 
-          <div id="ad_side">
+          <div>
             
-          <!-- AdSense Ajax Sample Side -->
-                <ins class="adsbygoogle"
-                   style="display:inline-block;width:728px;height:90px"
-                   data-ad-client="ca-pub-5462441746182858"
-                   data-ad-slot="6883313576"></ins>
-                <script>
-                (adsbygoogle = window.adsbygoogle || []).push({});
-                </script>
+			<script type="text/javascript" src="//cdn.chitika.net/getads.js" async></script>
+            <script type="text/javascript">
+              ( function() {
+              if (window.CHITIKA === undefined) { window.CHITIKA = { 'units' : [] }; };
+                var unit = {"calltype":"async[2]","publisher":"jtnng","width":728,"height":90,"sid":"Chitika Default"};
+                var placement_id = window.CHITIKA.units.length;
+                window.CHITIKA.units.push(unit);
+                document.write('<div id="chitikaAdBlock-' + placement_id + '"></div>');
+              }());
+            </script>
+			
           </div>
 
           <!--
