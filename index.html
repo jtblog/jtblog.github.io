@@ -98,14 +98,73 @@
                   // Place news stories in div tag
                   document.getElementById('results').innerHTML = output;
                 }
-    function topunchpost(){
+
+                function topunchpost(){
                     event = event || window.event;
                     var target = event.target || event.srcElement;
                     var id = target.id;
                     window.location.href = "post.html" + "?link='" + id + "'";
-    }
+                }
         
             </script> 
+
+            <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+            <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+
+            <script type="text/javascript">
+                // Load the Google Ads API
+                google.load("ads","1");
+                
+                // Init globals
+                google_ad_client  = "pub-5462441746182858";
+                google_ad_channel = "9653053974";
+                
+                gAds  = new Object(); // This is going to let us keep track of our ads.
+                
+                function initPage() {
+
+                  // Google cancelled this program...what a bummer
+                  //loadLeader("advertising, get rich quick, scams, internet radio");
+
+                  // Put a delay in between the two ad spots just for sanity.
+                  setTimeout (function (){
+                    loadSide("free stuff, music, slacker radio");
+                  }, 1000);
+                }
+                
+                function doAjaxAdsense(opts, container) {
+                  // If the ad is already on the page, we just refresh it, otherwise, we create it.
+                  var spotId  = opts.format + "_" + container.id;
+                  if (gAds[spotId]) {
+                        gAds[spotId].refresh({'hints' : opts.hints, 'ad_channel' : opts.ad_channel});
+                       } else {
+                        gAds[spotId] = new google.ads.Ad(google_ad_client, container, opts);
+                       }
+                }
+                // Set up params for loading the leaderboard spot
+                /*
+                function loadLeader(hints) {
+                  doAjaxAdsense({
+                    'format'    : google.ads.LEADERBOARD,
+                    'ad_slot'   : "8320962821",
+                    hints     : hints,
+                    'ad_channel'  : google_ad_channel
+                  }, document.getElementById('ad_leader'));
+                }
+                */
+                // Set up params for loading the side spot
+                function loadSide(hints) {
+                  doAjaxAdsense({
+                    'format'    : "728x90",
+                    'ad_slot'   : "6883313576",
+                    hints     : hints,
+                    'ad_channel'  : google_ad_channel
+                  }, document.getElementById('ad_side'));
+                }
+                
+                // Set the callback for the Google API load command
+                google.setOnLoadCallback(function() {});
+              </script>
       
     </head>
     
@@ -143,9 +202,22 @@
             <!-- Adtall - Ad Display Code -->
           </div>
 
+          <div id="ad_side">
+            
+          <!-- AdSense Ajax Sample Side -->
+                <ins class="adsbygoogle"
+                   style="display:inline-block;width:728px;height:90px"
+                   data-ad-client="ca-pub-5462441746182858"
+                   data-ad-slot="6883313576"></ins>
+                <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+          </div>
+
+          <!--
           <div>
             <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-              <!-- JT Ad -->
+              
               <ins class="adsbygoogle"
                    style="display:inline-block;width:728px;height:90px"
                    data-ad-client="ca-pub-5462441746182858"
@@ -159,7 +231,7 @@
                 (adsbygoogle = window.adsbygoogle || []).push({});
               </script>
           </div>
-
+        -->
 		  <div style="display:none; position: relative;">
 			<iframe style="display:none;"></iframe>
         <script type="text/javascript">
