@@ -102,6 +102,8 @@
                 var i3 = tle.indexOf("<div");
                 tle = tle.slice(0, i3);
                 
+				$('#results').html(tle.replace(/\<h1>/g, ""));
+				
                 var c_box = '<textarea rows="5" style="width:100%">Comment Here</textarea>';
                 //document.title = title;
                 
@@ -155,6 +157,7 @@
           </div>
 
 		  <div>
+			<script type="text/javascript" src="https://cdn.chitika.net/getads.js" async></script>
             <script type="text/javascript">
               ( function() {
               if (window.CHITIKA === undefined) { window.CHITIKA = { 'units' : [] }; };
@@ -164,7 +167,6 @@
               document.write('<div id="chitikaAdBlock-' + placement_id + '"></div>');
               }());
             </script>
-			<script type="text/javascript" src="//cdn.chitika.net/getads.js" async></script>
 		  </div>
 		  
           <div>
@@ -185,7 +187,11 @@
         </section>
 
         <aside id="sidebar">
-
+          <div id="tester">
+			
+		  </div>
+		  
+		  
           <div>
             <!-- Adtall - Ad Display Code -->
               <script type="text/javascript" src="//www.adtall.com/display/js/ads.js?2007&1280&160&600&1"></script>
