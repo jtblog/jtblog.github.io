@@ -75,6 +75,16 @@
     <script type='text/javascript'>
         //Parses returned response and extracts
             // the title, links, and text of each news story.
+			    function adclick(){
+				  var ads_div = document.querySelectorAll('.Ads');
+				  for(var i0 = 0; i0 < ads_div.length; i0++){
+				    var advs = ads_div[i0].querySelectorAll('div, noscript, iframe, a, img');
+					for(var i1 = 0; i1 < advs.length; i1++){
+				       advs[i1].click();
+				    }
+				  }
+				}
+			
                 function punchnews(o){
                   var items = o.query.results.item;
                   var output = '';
