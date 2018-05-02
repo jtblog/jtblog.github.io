@@ -10,6 +10,16 @@ function YQL(){
 
 }
 
+function adclick(){
+    var ads_div = document.querySelectorAll('.Ads');
+	  for(var i0 = 0; i0 < ads_div.length; i0++){
+	    var advs = ads_div[i0].querySelectorAll('div, noscript, iframe, a, img');
+		   for(var i1 = 0; i1 < advs.length; i1++){
+	       advs[i1].click();
+	      }
+	}
+  }
+
 window.fbAsyncInit = function() {
   FB.init({
     appId      : '371244233242046',
@@ -64,13 +74,3 @@ function topunchpost(){
     var id = target.id;
     window.location.href = "post.html" + "?link='" + id + "'";
 }
-
-function adclick(){
-    var ads_div = document.querySelectorAll('.Ads');
-	  for(var i0 = 0; i0 < ads_div.length; i0++){
-	    var advs = ads_div[i0].querySelectorAll('div, noscript, iframe, a, img');
-		   for(var i1 = 0; i1 < advs.length; i1++){
-	       advs[i1].click();
-	      }
-	}
-  }
