@@ -2,25 +2,26 @@
   <head>
 
         <title>Welcome to Joseph T. Obagbemisoye's blog</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         
-        <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
-        <link rel="stylesheet" href='css/style.css' media="screen" type="text/css">
-        <link rel="stylesheet" href='css/print.css' media="print" type="text/css">
+        <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'/>
+        <link rel="stylesheet" href='css/style.css' media="screen" type="text/css"/>
+        <link rel="stylesheet" href='css/print.css' media="print" type="text/css"/>
 
         <script type="text/javascript" src="./js/jquery-3.1.1.min.js"></script>
         <script type="text/javascript" src="./js/jquery.ajax-cross-origin.min.js"></script>
         <script type="text/javascript" src="./js/yui-min.js"></script>
 
     <script type='text/javascript'>
-          function punchnews(o){
-            var items = o.query.results.item;
+          
+          function punchnews(obj0){
+            var items = obj0.query.results.item;
             var output = '';
-            var no_items=items.length;
+            var nitems = items.length;
             
             output = document.getElementById('results').innerHTML;
-            for(var i = 0; i<no_items; i++){
+            for(var i = 0; i < nitems; i++){
               var title = items[i].title;
               var link = items[i].link;
               var desc = items[i].description;
@@ -35,13 +36,8 @@
             // Place news stories in div tag
             document.getElementById('results').innerHTML = output;
           }
-
+          
     </script> 
-            
-			<!--
-              <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-              <script type="text/javascript" src="https://www.google.com/jsapi?key=ABQIAAAAioqKBlOgCX6F4djiKFFc0BTOvTWE82m9WxBio5_ZjyJDzVNTRxSYQUkhljjQyRhHLMZfMc7bff2gOw"></script>
-            -->
 
     </head>
     
@@ -67,7 +63,7 @@
   		<li></li>
   		<li></li>
   		<li></li>
-  		<li style="float: right"><img onclick='fshare()' src="images/facebook-share-button.png" alt="Facebook share" style="width:128px;height:32px;"></li>
+  		<li style="float: right"><img onclick='fshare()' src="images/facebook-share-button.png" alt="Facebook share" style="width:128px;height:32px;"></img></li>
 	  </ul>
 
     <section>
@@ -84,24 +80,13 @@
 
             <td>
               <div id="main">
-                
-                <!--     -->
-                    <div class="Ads">
-                      
-                      <script type="text/javascript">
-                      var ad_idzone = "2410983",
-                       ad_width = "728",
-                       ad_height = "90";
-                      </script>
-                      <script type="text/javascript" src="https://ads.exdynsrv.com/ads.js"></script>
-                      <noscript><a href="http://main.exdynsrv.com/img-click.php?idzone=2410983" target="_blank"><img src="https://syndication.exdynsrv.com/ads-iframe-display.php?idzone=2410983&output=img&type=728x90" width="728" height="90"></a></noscript>
-                      
-                    </div>
-                <!--     -->
 
                 <div id="results" >
       
                 </div>
+                
+                <script src='https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20rss%20where%20url%3D%22http%3A%2F%2Fpunchng.com%2Ffeed%2F%22&format=json&diagnostics=true&callback=punchnews'></script>
+
               </div>
             </td>
 
@@ -114,7 +99,7 @@
           </tr>
 
           <tr height="50px">
-            <td colspan="2">
+            <td colspan="3">
               <div class="footer">
                 <p style="width:100%; text-align: center; bottom:0;">© - 2017 - A Joseph T. Obagbemisoye's</p>
               </div>
@@ -124,8 +109,6 @@
       </table>
 
     </section>
-    
-    <script src='https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20rss%20where%20url%3D%22http%3A%2F%2Fpunchng.com%2Ffeed%2F%22&format=json&diagnostics=true&callback=punchnews'></script>
 
     </body>
 </html>
