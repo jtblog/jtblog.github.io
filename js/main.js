@@ -11,10 +11,29 @@ function run(){
 	// head.appendChild(script);
 }
 
-function YQL(){
+function punchnews(obj0){
+    var items = obj0.query.results.item;
+    var output = '';
+    var nitems = items.length;
+    
+    output = document.getElementById('results').innerHTML;
+    for(var i = 0; i < nitems; i++){
+      var title = items[i].title;
+      var link = items[i].link;
+      var desc = items[i].description;
+      var indx = desc.indexOf("[&#8230;]");
+      var r_desc = 'The post <a rel="nofollow" href="http://punchng.com/punch-newspapers/">Punch Newspapers</a>' +
+          ' appeared first on <a rel="nofollow" href="http://punchng.com">Punch Newspapers</a>.';
+      var l_desc = 'http://punchng.com/punch-newspapers/';
+      var t_desc = 'Punch Newspapers';
+      output += "<div><p id = '" + link.replace(l_desc, '') + "' onclick= 'topunchpost()' style='color: blue; text-decoration: underline'>" + 
+              title.replace(t_desc, '') + "</p>" + desc.slice(0, indx).replace(r_desc, '') + "... </div><hr/>";
+    }
+    // Place news stories in div tag
+    document.getElementById('results').innerHTML = output;
+  }
 
-}
-
+/*
 function adclick(){
     var ads_div = document.querySelectorAll('.Ads');
 	  for(var i0 = 0; i0 < ads_div.length; i0++){
@@ -24,7 +43,7 @@ function adclick(){
 	      }
 	}
   }
-
+*/
 window.fbAsyncInit = function() {
   FB.init({
     appId      : '371244233242046',
@@ -42,6 +61,7 @@ window.fbAsyncInit = function() {
    fjs.parentNode.insertBefore(js, fjs);
  }(document, 'script', 'facebook-jssdk'));
 
+/*
 function fshare() {
 	var url = window.location.href;
 	FB.ui({
@@ -50,6 +70,7 @@ function fshare() {
 	  href: url,
 	}, function(response){});
 }
+*/
 
 function topunchpost(){
   event = event || window.event;
