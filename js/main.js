@@ -10,6 +10,7 @@ var config = {
 };
 var app = firebase.initializeApp(config);
 var db = firebase.firestore(app);
+firebase.firestore().settings({ timestampsInSnapshots: true });
 
 // Get a reference to the database service
 //var db = firebase.database();
