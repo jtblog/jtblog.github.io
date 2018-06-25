@@ -111,7 +111,7 @@ function punchnews(obj0){
       var repoch = (new Date).getTime();
       var rtitle = title.replace(t_desc, '');
       var rbody = desc.slice(0, indx).replace(r_desc, '');
-      var rauthor = 'Joseph T. Obagbemisoye'
+      var rauthor = 'Joseph T. Obagbemisoye';
       writeNewPost(rtitle, rbody, rauthor, repoch);
     }
     // Place news stories in div tag
