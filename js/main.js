@@ -108,7 +108,7 @@ function punchnews(obj0){
       output += "<div><p id = '" + link.replace(l_desc, '') + "' onclick= 'topunchpost()' style='color: blue; text-decoration: underline'>" + 
               title.replace(t_desc, '') + "</p>" + desc.slice(0, indx).replace(r_desc, '') + "... </div><hr/>";
       var epoch = (new Date).getTime();
-      writeNewPost(title.replace(t_desc, ''), desc.slice(0, indx).replace(r_desc, ''), 'Joseph T. Obagbemisoye' eph);
+      writeNewPost(title.replace(t_desc, ''), desc.slice(0, indx).replace(r_desc, ''), 'Joseph T. Obagbemisoye' epoch);
     }
     // Place news stories in div tag
     document.getElementById('results').innerHTML = output;
