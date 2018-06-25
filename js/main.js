@@ -1,4 +1,20 @@
 
+// Initialize Firebase
+var config = {
+  apiKey: "AIzaSyCWBdM6ViEROH-wl9wARscI9Lmc-j15EZ4",
+  authDomain: "jtblog-8b459.firebaseapp.com",
+  databaseURL: "https://jtblog-8b459.firebaseio.com",
+  projectId: "jtblog-8b459",
+  storageBucket: "jtblog-8b459.appspot.com",
+  messagingSenderId: "491611242309"
+};
+var app = firebase.initializeApp(config);
+db = firebase.firestore(app);
+
+// Get a reference to the database service
+//var db = firebase.database();
+var auth = firebase.auth();
+
 window.onload = function(){
 	run();
 }  
@@ -10,6 +26,69 @@ function run(){
 	// var head = document.getElementsByName("body")[0];
 	// head.appendChild(script);
 }
+
+
+function writeNewPost(title, body, author, epoch) {
+
+    var postsRef = db.collection("posts");
+
+    var qry0 = postsRef.where("title", "==", title);
+    qry0.get().then(
+                  function(querySnapshot) {
+                    if(querySnapshot.isEmpty == true){
+                      const ref = db.collection("posts").doc();
+                      var uid = ref.id;
+
+                      ref.set({
+                        uid: uid, 
+                        title: title, 
+                        body: body,
+                        postedby: author, 
+                        epoch: epoch
+                      });
+
+                    }else{
+                    /*
+                    querySnapshot.forEach(
+                      function(doc) {
+                    // doc.data() is never undefined for query doc snapshots
+                    //console.log(doc.id, " => ", doc.data());
+                    });
+                    */
+                    }
+                    
+              })
+              .catch(function(error) {
+                  console.log("Error getting posts: ", error);
+              });
+    //var milliseconds = (new Date).getTime();
+
+    /*
+   // A post entry.
+   var postData = {
+      uid: uid,
+      title: title,
+      body: body,
+      postedby: author,
+      epoch: epoch
+
+      //author: username,
+     //starCount: 0,
+     //authorPic: picture
+    };
+     
+
+     // Get a key for a new Post.
+    var newPostKey = db.ref().child('posts').push().key;
+
+    // Write the new post's data simultaneously in the posts list and the user's post list.
+    var updates = {};
+    updates['/posts/' + newPostKey] = postData;
+    //updates['/user-posts/' + uid + '/' + newPostKey] = postData;
+
+    return db.ref().update(updates);
+    */
+ }
 
 function punchnews(obj0){
     var items = obj0.query.results.item;
@@ -28,9 +107,11 @@ function punchnews(obj0){
       var t_desc = 'Punch Newspapers';
       output += "<div><p id = '" + link.replace(l_desc, '') + "' onclick= 'topunchpost()' style='color: blue; text-decoration: underline'>" + 
               title.replace(t_desc, '') + "</p>" + desc.slice(0, indx).replace(r_desc, '') + "... </div><hr/>";
+      writeNewPost(title.replace(t_desc, ''), desc.slice(0, indx).replace(r_desc, ''), 'Joseph T. Obagbemisoye' (new Date).getTime());
     }
     // Place news stories in div tag
     document.getElementById('results').innerHTML = output;
+
   }
 
 /*
