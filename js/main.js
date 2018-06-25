@@ -9,7 +9,7 @@ var config = {
   messagingSenderId: "491611242309"
 };
 var app = firebase.initializeApp(config);
-db = firebase.firestore(app);
+var db = firebase.firestore(app);
 
 // Get a reference to the database service
 //var db = firebase.database();
