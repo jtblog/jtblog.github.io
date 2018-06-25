@@ -107,8 +107,12 @@ function punchnews(obj0){
       var t_desc = 'Punch Newspapers';
       output += "<div><p id = '" + link.replace(l_desc, '') + "' onclick= 'topunchpost()' style='color: blue; text-decoration: underline'>" + 
               title.replace(t_desc, '') + "</p>" + desc.slice(0, indx).replace(r_desc, '') + "... </div><hr/>";
-      var epoch = (new Date).getTime();
-      writeNewPost(title.replace(t_desc, ''), desc.slice(0, indx).replace(r_desc, ''), 'Joseph T. Obagbemisoye' epoch);
+      
+      var repoch = (new Date).getTime();
+      var rtitle = title.replace(t_desc, '');
+      var rbody = desc.slice(0, indx).replace(r_desc, '');
+      var rauthor = 'Joseph T. Obagbemisoye'
+      writeNewPost(rtitle, rbody, rauthor, repoch);
     }
     // Place news stories in div tag
     document.getElementById('results').innerHTML = output;
