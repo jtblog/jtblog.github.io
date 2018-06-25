@@ -31,6 +31,7 @@ function run(){
 
 function writeNewPost(title, body, author, epoch) {
 
+    /*
     var postsRef = db.collection("posts");
 
     var qry0 = postsRef.where("title", "==", title);
@@ -55,7 +56,7 @@ function writeNewPost(title, body, author, epoch) {
                     // doc.data() is never undefined for query doc snapshots
                     //console.log(doc.id, " => ", doc.data());
                     });
-                    */
+                    
                     }
                     
               })
@@ -63,8 +64,9 @@ function writeNewPost(title, body, author, epoch) {
                   console.log("Error getting posts: ", error);
               });
     //var milliseconds = (new Date).getTime();
+    */
 
-    /*
+    /**/
    // A post entry.
    var postData = {
       uid: uid,
@@ -88,7 +90,7 @@ function writeNewPost(title, body, author, epoch) {
     //updates['/user-posts/' + uid + '/' + newPostKey] = postData;
 
     return db.ref().update(updates);
-    */
+    /**/
  }
 
 function punchnews(obj0){
