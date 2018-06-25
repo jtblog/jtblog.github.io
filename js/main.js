@@ -9,11 +9,11 @@ var config = {
   messagingSenderId: "491611242309"
 };
 var app = firebase.initializeApp(config);
-var db = firebase.firestore(app);
-firebase.firestore().settings({ timestampsInSnapshots: true });
+//var db = firebase.firestore(app);
+//firebase.firestore().settings({ timestampsInSnapshots: true });
 
 // Get a reference to the database service
-//var db = firebase.database();
+var db = firebase.database();
 var auth = firebase.auth();
 
 window.onload = function(){
@@ -68,28 +68,14 @@ function writeNewPost(title, body, author, epoch) {
 
     /**/
    // A post entry.
-   var postData = {
-      uid: uid,
-      title: title,
-      body: body,
-      postedby: author,
-      epoch: epoch
-
-      //author: username,
-     //starCount: 0,
-     //authorPic: picture
-    };
-     
-
-     // Get a key for a new Post.
-    var newPostKey = db.ref().child('posts').push().key;
-
-    // Write the new post's data simultaneously in the posts list and the user's post list.
-    var updates = {};
-    updates['/posts/' + newPostKey] = postData;
-    //updates['/user-posts/' + uid + '/' + newPostKey] = postData;
-
-    return db.ref().update(updates);
+      var postsRef = db.ref().child('posts');
+      var newPostRef = postsRef.push();
+      newPostRef.set({
+        title: title,
+        body: body,
+        postedby: author,
+        epoch: epoch
+      });
     /**/
  }
 
