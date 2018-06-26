@@ -111,8 +111,8 @@ function punchnews(obj0){
           ' appeared first on <a rel="nofollow" href="http://punchng.com">Punch Newspapers</a>.';
       var l_desc = 'http://punchng.com/punch-newspapers/';
       var t_desc = 'Punch Newspapers';
-      output += "<div><p id = '" + link.replace(l_desc, '') + "' onclick= 'topunchpost()' style='color: blue; text-decoration: underline'>" + 
-              title.replace(t_desc, '') + "</p>" + desc.slice(0, indx).replace(r_desc, '') + "... </div><hr/>";
+      output += "<div><input id = '" + link.replace(l_desc, '') + "' onclick = 'topunchpost()' style='color: blue; text-decoration: underline'>" + 
+              title.replace(t_desc, '') + "/><br>" + desc.slice(0, indx).replace(r_desc, '') + "... </div><hr/>";
       
       var repoch = (new Date).getTime();
       var rtitle = title.replace(t_desc, '');
