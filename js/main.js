@@ -125,7 +125,7 @@ function punchnews(obj0){
               "... </div><hr/>";
       */
 
-      var ploc = window.location.href + "/post.html" + "?link='" + link + "'";
+      var ploc = window.location.href + '/post.html' + '?link="' + link + '"';
       ploc = ploc.replace("/index.html", '');
       output += "<div>" +
         " <a id = '" + link + "' href = '" + ploc + "'>" + title + "</a><br>" + body + 
