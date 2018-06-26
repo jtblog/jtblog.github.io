@@ -28,55 +28,71 @@ function run(){
 	// head.appendChild(script);
 }
 
+function postexists(title){
+
+    var has_post = false;
+    // Determine which child keys in DataSnapshot have data.
+    var ref0 = db.ref();
+    ref0.once("value")
+      .then(function(snapshot) {
+        var hasName = snapshot.hasChild("posts");
+        if(hasName == true){
+
+          // Loop through posts in order with the forEach() method. The callback
+          // provided to forEach() will be called synchronously with a DataSnapshot
+          // for each child:
+          var query = db.ref("posts").orderByKey();
+          query.once("value")
+            .then(
+              function(snapshot0) {
+              snapshot0.forEach(
+                function(snapshot1) {
+
+                var key = snapshot1.key;
+                var t0 = "posts/" + key;
+                var ref1 = db.ref(t0);
+
+                ref1.once("value")
+                  .then(function(snapshot2) {
+                    //var key = snapshot2.key;
+                    var t1 = snapshot2.child("title").val();
+                    if(title == t1 || t1.indexOf(title) >= 0 || title.indexOf(t1) >= 0){
+                      has_post = true;
+                    }else{
+                      has_post = false;
+                    }
+
+                  });
+
+            });
+
+          });
+
+        }else{
+          has_post = false;
+        }
+      });
+
+      return has_post;
+
+}
 
 function writeNewPost(title, body, author, epoch) {
 
-    /*
-    var postsRef = db.collection("posts");
-
-    var qry0 = postsRef.where("title", "==", title);
-    qry0.get().then(
-                  function(querySnapshot) {
-                    if(querySnapshot.isEmpty == true){
-                      const ref = db.collection("posts").doc();
-                      var uid = ref.id;
-
-                      ref.set({
-                        uid: uid, 
-                        title: title, 
-                        body: body,
-                        postedby: author, 
-                        epoch: epoch
-                      });
-
-                    }else{
-                    /*
-                    querySnapshot.forEach(
-                      function(doc) {
-                    // doc.data() is never undefined for query doc snapshots
-                    //console.log(doc.id, " => ", doc.data());
-                    });
-                    
-                    }
-                    
-              })
-              .catch(function(error) {
-                  console.log("Error getting posts: ", error);
-              });
-    //var milliseconds = (new Date).getTime();
-    */
-
-    /**/
-   // A post entry.
-      var postsRef = db.ref().child('posts');
-      var newPostRef = postsRef.push();
-      newPostRef.set({
-        title: title,
-        body: body,
-        postedby: author,
-        epoch: epoch
-      });
-    /**/
+    if(postexists == false){
+      /**/
+       // A post entry.
+          var postsRef = db.ref().child('posts');
+          var newPostRef = postsRef.push();
+          newPostRef.set({
+            title: title,
+            body: body,
+            postedby: author,
+            epoch: epoch
+          });
+      /**/
+    }
+     
  }
 
 function punchnews(obj0){
