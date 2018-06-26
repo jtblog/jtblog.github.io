@@ -231,13 +231,18 @@
     <footer style="width:100%; text-align: center; bottom:0;">© - 2017 - A Joseph T. Obagbemisoye's</footer>  
     <script type='text/javascript'>
             link = link.replace("'", "");
-            
+            var yql = "select * from htmlstring where url='" + link + "' AND xpath='//div'";
+
             var s = document.createElement("script");
             s.type = "text/javascript";
+
+            var resturl = "https://query.yahooapis.com/v1/public/yql?q="
+                + encodeURIComponent(yql) + "&format=json"
+                + "&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys&callback=res";
+            /*
             s.src = "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20html%20where%20url%3D'" +
                             encodeURIComponent(link) + "'&callback=res";
-            //s.innerHTML = "alert('Bingo')";
-            //
+            */
             document.body.appendChild(s);
         </script>
   </body>
