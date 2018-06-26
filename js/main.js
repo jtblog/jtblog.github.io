@@ -111,9 +111,19 @@ function punchnews(obj0){
           ' appeared first on <a rel="nofollow" href="http://punchng.com">Punch Newspapers</a>.';
       var l_desc = 'http://punchng.com/punch-newspapers/';
       var t_desc = 'Punch Newspapers';
+
+      /*
       output += "<div>" +
-        " +<p id = '" + link.replace(l_desc, '') + "' onclick = 'topunchpost();' style='color: blue; text-decoration: underline;' >" + 
+        " <p id = '" + link.replace(l_desc, '') + "' onclick = 'topunchpost();' style='color: blue; text-decoration: underline;' >" + 
               title.replace(t_desc, '') + "</p><br>" + desc.slice(0, indx).replace(r_desc, '') + 
+              "... </div><hr/>";
+      */
+
+      var ploc = window.location.href + "/post.html" + "?link='" + id + "'";
+      ploc = ploc.replace("/index.html", "");
+      output += "<div>" +
+        " <a id = '" + link.replace(l_desc, '') + "' href = '" + ploc + "'>" + 
+              title.replace(t_desc, '') + "</a><br>" + desc.slice(0, indx).replace(r_desc, '') + 
               "... </div><hr/>";
       
       var repoch = (new Date).getTime();
@@ -166,9 +176,11 @@ function fshare() {
 }
 */
 
+/*
 function topunchpost(){
   event = event || window.event;
   var target = event.target || event.srcElement;
   var id = target.id;
   window.location.href = "post.html" + "?link='" + id + "'";
 }
+*/
