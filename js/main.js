@@ -112,7 +112,7 @@ function punchnews(obj0){
       var l_desc = 'http://punchng.com/punch-newspapers/';
       var t_desc = 'Punch Newspapers';
       output += "<div>" +
-        " +<p id = '" + link.replace(l_desc, '') + "' onclick = 'topunchpost()' style='color: blue; text-decoration: underline'" + 
+        " +<p id = '" + link.replace(l_desc, '') + "' onclick = 'topunchpost();' style='color: blue; text-decoration: underline;' >" + 
               title.replace(t_desc, '') + "</p><br>" + desc.slice(0, indx).replace(r_desc, '') + 
               "... </div><hr/>";
       
