@@ -75,11 +75,13 @@
     <script type='text/javascript' src="https://dl.dropbox.com/s/7dnw1vnj7mjnsko/yui-min.js"></script>
 
     <script type='text/javascript'>
-            var qS = decodeURIComponent(window.location.search);
-            var link = qS.slice(7, qS.length - 1);
-            
+            var elnk = decodeURIComponent(window.location.search);
+            var link = elnk.slice(7, elnk.length - 1);
+            var con = "";
+
             function res(o){
-                var data = JSON.stringify(o);
+                con = JSON.stringify(o);
+                /*
                 data = data.replace(/\\n/g, "");
                 data = data.replace(/\\/g, "");
                 var tle = data;
@@ -116,6 +118,7 @@
                             "-Our news provider might be busy on their site. You can always check back";
                     $('#results').html(t); 
                 };
+                */
             }
             
     </script>
