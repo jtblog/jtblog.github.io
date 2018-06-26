@@ -105,13 +105,19 @@ function punchnews(obj0){
     for(var i = 0; i < nitems; i++){
       var title = items[i].title;
       var link = items[i].link;
-      var desc = items[i].description;
-      var indx = desc.indexOf("[&#8230;]");
-      var r_desc = 'The post <a rel="nofollow" href="http://punchng.com/punch-newspapers/">Punch Newspapers</a>' +
-          ' appeared first on <a rel="nofollow" href="http://punchng.com">Punch Newspapers</a>.';
-      var l_desc = 'http://punchng.com/punch-newspapers/';
-      var t_desc = 'Punch Newspapers';
+      var body = items[i].description;
 
+      var indx = body.indexOf("[&#8230;]");
+      var r_uw = 'The post <a rel="nofollow" href="http://punchng.com/punch-newspapers/">Punch Newspapers</a>' +
+          ' appeared first on <a rel="nofollow" href="http://punchng.com">Punch Newspapers</a>.';
+      var l_uw0 = 'http://punchng.com/punch-newspapers/';
+      var l_uw1 = 'http://punchng.com/';
+      var t_uw = 'Punch Newspapers';
+
+      link = link.replace(l_uw0, '');
+      link = link.replace(l_uw1, '');
+      body = body.slice(0, indx).replace(r_uw, '');
+      title = title.replace(t_uw, '');
       /*
       output += "<div>" +
         " <p id = '" + link.replace(l_desc, '') + "' onclick = 'topunchpost();' style='color: blue; text-decoration: underline;' >" + 
@@ -119,18 +125,15 @@ function punchnews(obj0){
               "... </div><hr/>";
       */
 
-      var ploc = window.location.href + "/post.html" + "?link='" + title.replace(t_desc, '') + "'";
-      ploc = ploc.replace("/index.html", "");
+      var ploc = window.location.href + "/post.html" + "?link='" + link + "'";
+      ploc = ploc.replace("/index.html", '');
       output += "<div>" +
-        " <a id = '" + link.replace(l_desc, '') + "' href = '" + ploc + "'>" + 
-              title.replace(t_desc, '') + "</a><br>" + desc.slice(0, indx).replace(r_desc, '') + 
+        " <a id = '" + link + "' href = '" + ploc + "'>" + title + "</a><br>" + body + 
               "... </div><hr/>";
       
       var repoch = (new Date).getTime();
-      var rtitle = title.replace(t_desc, '');
-      var rbody = desc.slice(0, indx).replace(r_desc, '');
       var rauthor = 'Joseph T. Obagbemisoye';
-      //writeNewPost(rtitle, rbody, rauthor, repoch, fulltext);
+      //writeNewPost(title, desc, rauthor, repoch, fulltext);
     }
     // Place news stories in div tag
     document.getElementById('results').innerHTML = output;
