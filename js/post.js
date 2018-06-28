@@ -3,7 +3,7 @@
 var config = {
   apiKey: "AIzaSyCWBdM6ViEROH-wl9wARscI9Lmc-j15EZ4",
   authDomain: "jtblog-8b459.firebaseapp.com",
-  data0baseURL: "https://jtblog-8b459.firebaseio.com",
+  databaseURL: "https://jtblog-8b459.firebaseio.com",
   projectId: "jtblog-8b459",
   storageBucket: "jtblog-8b459.appspot.com",
   messagingSenderId: "491611242309"
