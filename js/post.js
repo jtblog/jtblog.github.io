@@ -1,3 +1,4 @@
+jshint ignore:start 
 
 // Initialize Firebase
 var config = {
@@ -107,3 +108,5 @@ function fshare() {
 	}, function(response){});
 }
 */
+
+jshint ignore:end 
