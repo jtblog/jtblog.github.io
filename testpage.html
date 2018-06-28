@@ -1,0 +1,235 @@
+<html>
+  <head>
+
+    <title>Welcome to Joseph T. Obagbemisoye's blog</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href='css/style.css' media="screen" type="text/css">
+    <link rel="stylesheet" href='css/print.css' media="print" type="text/css">	  
+    
+    <style>
+    		  #list0 {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: #333;
+        top: 0;
+        width: 100%;
+    }
+
+    li {
+        float: left;
+    }
+
+    li a {
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 10px 12px;
+        text-decoration: none;
+    }
+
+    /* Change the link color to #111 (black) on hover */
+    li a:hover {
+        background-color: #111;
+    }
+    </style>
+
+	<script type="text/javascript" src="https://connect.facebook.net/en_US/fbadnw.js" async></script>
+
+        <script>
+          window.fbAsyncInit = function() {
+            FB.init({
+              appId      : '371244233242046',
+              xfbml      : true,
+              version    : 'v2.8'
+            });
+            FB.AppEvents.logPageView();
+          };
+
+          (function(d, s, id){
+             var js, fjs = d.getElementsByTagName(s)[0];
+             if (d.getElementById(id)) {return;}
+             js = d.createElement(s); js.id = id;
+             js.src = "//connect.facebook.net/en_US/sdk.js";
+             fjs.parentNode.insertBefore(js, fjs);
+           }(document, 'script', 'facebook-jssdk'));
+        </script>
+
+        <script>
+          function fshare() {
+          var url = window.location.href;
+          FB.ui({
+            method: 'share',
+            display: 'popup',
+            href: url,
+          }, function(response){});
+        }
+        </script>
+
+    <script type="text/javascript" src="./js/jquery-3.1.1.min.js"></script>
+    <script type="text/javascript" src="./js/jtblog-googlescript.js"></script>
+        <script type="text/javascript" src="./js/yui-min.js"></script>
+        <script type="text/javascript" src="./js/main.js"></script>
+
+    <script type='text/javascript'>
+            var elnk = decodeURIComponent(window.location.search);
+            var link = elnk.slice(7, elnk.length - 1);
+            var con = "";
+
+            function res(o){
+                con = JSON.stringify(o);
+                
+                /*
+                data = data.replace(/\\n/g, "");
+                data = data.replace(/\\/g, "");
+                var tle = data;
+                
+                var i0 = data.indexOf('<!-- .entry-header -->');  
+                var i1 = data.indexOf('<!-- .entry-content -->'); 
+                
+                data = data.slice(i0, i1);
+                data = data.replace("All rights reserved. This material, and other digital content on this website" +
+                        ", may not be reproduced, published, broadcast, rewritten or redistributed in whole" + 
+                        " or in part without prior express written permission from PUNCH. ", "");
+                data = data.replace("Copyright PUNCH.", "");
+                data = data.replace("<strong>Contact: </strong>", "");
+
+                data = data.replace(/\[email&nbsp;protected]/g, 'post.html?link=%27');
+                data = data.replace(/\punchng.com/g, 'jtblog.github.io/post.html?link=%27http://punchng.com');
+                
+                var i2 = tle.indexOf('<h1 class="post_title">');
+                tle = tle.slice(i2, tle.length);
+                var i3 = tle.indexOf("<div");
+                tle = tle.slice(0, i3);
+                
+				var ttl = tle.replace(/\<h1 class="post_title">/g, "").replace(/\<\/h1>/g, "");
+				
+                var c_box = '<textarea rows="5" style="width:100%">Comment Here</textarea>';
+                document.title = "JT Blog - " + ttl;
+                
+        //$('#insider').html(tle);
+                
+                $('#results').html(tle + data + c_box);
+                if($('#results').html() == ""){
+                    var t = "Error loading page working on it right away <br/><br/>" +
+                            "-Meanwhile you may check your internet connection or<br/><br/>" +
+                            "-Our news provider might be busy on their site. You can always check back";
+                    $('#results').html(t); 
+                };
+                */
+            }
+            
+    </script>
+
+  </head>
+
+  <body id="j">
+	<nav>
+	  <ul id="list0">
+		<li><a href="index.html">Home</a></li>
+		<li><a href="vout.asp">Voice Out</a></li>
+		<li><a href="contact.html">Contact</a></li>
+		<li><a href="about.html">About</a></li>
+	  </ul>
+	</nav>
+
+	<header>
+      <div class="inner">
+        <h1>JT BLOG</h1>
+        <h2>A Joseph T. Obagbemisoye's</h2>
+      </div>
+
+    </header>
+	<ul id="list1">
+	  <li></li>
+	  <li></li>
+	  <li></li>
+	  <li style="float: right"><img onclick="fshare()" src="images/facebook-share-button.png" alt="Facebook share" style="width:128px;height:32px;"></li>
+	</ul>
+
+    <div id="content-wrapper">
+      <div class="inner clearfix">
+        <section id="main-content">
+
+          <div>
+            <!-- Adtall - Ad Display Code -->
+              <script type="text/javascript" src="//www.adtall.com/display/js/ads.js?2006&1280&728&90&1"></script>
+            <!-- Adtall - Ad Display Code -->
+          </div>
+
+		  <div>
+			<script type="text/javascript" src="https://cdn.chitika.net/getads.js" async></script>
+            <script type="text/javascript">
+              ( function() {
+              if (window.CHITIKA === undefined) { window.CHITIKA = { 'units' : [] }; };
+              var unit = {"calltype":"async[2]","publisher":"jtnng","width":728,"height":90,"sid":"Chitika Default"};
+              var placement_id = window.CHITIKA.units.length;
+              window.CHITIKA.units.push(unit);
+              document.write('<div id="chitikaAdBlock-' + placement_id + '"></div>');
+              }());
+            </script>
+		  </div>
+		  
+          <div>
+            <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+              <!-- JT Ad -->
+              <ins class="adsbygoogle"
+                   style="display:inline-block;width:728px;height:90px"
+                   data-ad-client="ca-pub-5462441746182858"
+                   data-ad-slot="6883313576"></ins>
+              <script>
+              (adsbygoogle = window.adsbygoogle || []).push({});
+              </script>
+          </div>
+
+          <p id="results">
+
+          </p>
+        </section>
+
+        <aside id="sidebar">
+          <div id="tester">
+			
+		  </div>
+		  
+		  
+          <div>
+            <!-- Adtall - Ad Display Code -->
+              <script type="text/javascript" src="//www.adtall.com/display/js/ads.js?2007&1280&160&600&1"></script>
+            <!-- Adtall - Ad Display Code -->
+          </div>
+          
+		  <div style="display:none; position: relative;">
+			<iframe style="display:none;"></iframe>
+          <script type="text/javascript">
+              var data = {
+                placementid: '371244233242046_373203999712736',
+                format: '300x250',
+                testmode: false,
+                onAdLoaded: function(element) {
+                  console.log('Audience Network [371244233242046_373203999712736] ad loaded');
+                  element.style.display = 'block';
+                },
+                onAdError: function(errorCode, errorMessage) {
+                  console.log('Audience Network [371244233242046_373203999712736] error (' + errorCode + ') ' + errorMessage);
+                }
+              };
+              (function(w,l,d,t){var a=t();var b=d.currentScript||(function(){var c=d.getElementsByTagName('script');return c[c.length-1];})();var e=b.parentElement;e.dataset.placementid=data.placementid;var f=function(v){try{return v.document.referrer;}catch(e){}return'';};var g=function(h){var i=h.indexOf('/',h.indexOf('://')+3);if(i===-1){return h;}return h.substring(0,i);};var j=[l.href];var k=false;var m=false;if(w!==w.parent){var n;var o=w;while(o!==n){var h;try{m=m||(o.$sf&&o.$sf.ext);h=o.location.href;}catch(e){k=true;}j.push(h||f(n));n=o;o=o.parent;}}var p=l.ancestorOrigins;if(p){if(p.length>0){data.domain=p[p.length-1];}else{data.domain=g(j[j.length-1]);}}data.url=j[j.length-1];data.channel=g(j[0]);data.width=screen.width;data.height=screen.height;data.pixelratio=w.devicePixelRatio;data.placementindex=w.ADNW&&w.ADNW.Ads?w.ADNW.Ads.length:0;data.crossdomain=k;data.safeframe=!!m;var q={};q.iframe=e.firstElementChild;var r='https://www.facebook.com/audiencenetwork/web/?sdk=5.3';for(var s in data){q[s]=data[s];if(typeof(data[s])!=='function'){r+='&'+s+'='+encodeURIComponent(data[s]);}}q.iframe.src=r;q.tagJsInitTime=a;q.rootElement=e;q.events=[];w.addEventListener('message',function(u){if(u.source!==q.iframe.contentWindow){return;}u.data.receivedTimestamp=t();if(this.sdkEventHandler){this.sdkEventHandler(u.data);}else{this.events.push(u.data);}}.bind(q),false);q.tagJsIframeAppendedTime=t();w.ADNW=w.ADNW||{};w.ADNW.Ads=w.ADNW.Ads||[];w.ADNW.Ads.push(q);w.ADNW.init&&w.ADNW.init(q);})(window,location,document,Date.now||function(){return+new Date;});
+          </script>
+			<script type="text/javascript" src="https://connect.facebook.net/en_US/fbadnw.js" async></script>
+		  </div>
+		  
+        </aside>
+      </div>
+    </div>
+    <!--
+    <script src='https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20rss%20where%20url%3D%22http%3A%2F%2Fwww.lindaikejisblog.com%2Ffeeds%2Fposts%2Fdefault%22&format=json&diagnostics=true&callback=top_stories'></script>
+    <script src='https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20rss%20where%20url%3D%22http%3A%2F%2Fpunchng.com%2Ffeed%2F%22&format=json&diagnostics=true&callback=top_stories'></script>
+    -->
+    <footer style="width:100%; text-align: center; bottom:0;">© - 2018 - A Joseph T. Obagbemisoye's</footer>  
+  </body>
+</html>
