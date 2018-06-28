@@ -21,6 +21,8 @@ window.onload = function(){
 }  
 
 function run(){
+  var h = $("#tble").parent().height();
+  $("#tble").height(h);
 	// var script = document.createElement("script");
 	// script.src = "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20rss%20where%20url%3D%22http%3A%2F%2Fpunchng.com%2Ffeed%2F%22&format=json&diagnostics=true&callback=punchnews";
 
