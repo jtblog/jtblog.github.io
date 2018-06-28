@@ -622,9 +622,6 @@ header h2 {
 
 .inner {
   position: relative;
-  border-style: 0;
-  border: 0;
-  border-width: 0;
   margin: 0 auto; }
 
 #content-wrapper {
