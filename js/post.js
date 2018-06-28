@@ -13,7 +13,7 @@ var app = firebase.initializeApp(config);
 //firebase.firestore().settings({ timestampsInSnapshots: true });
 
 // Get a reference to the data0base service
-var db = firebase.data0base();
+var db = firebase.database();
 var auth = firebase.auth();
 
 window.onload = function(){
