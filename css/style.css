@@ -19,8 +19,9 @@ body {
   margin: 0; }
 
 .bdrless{
-  border-style: none;
-  border: none;
+  border-style: 0;
+  border: 0;
+  border-width: 0;
 }
 
 /* HTML5 display definitions
