@@ -77,7 +77,7 @@ function postexists(title){
 
 }
 
-function writeNewPost(title, body, author, epoch, fulltext, source) {
+function writeNewPost(title, body, author, epoch, details) {
 
     if(postexists == false){
       /**/
@@ -89,8 +89,7 @@ function writeNewPost(title, body, author, epoch, fulltext, source) {
             body: body,
             postedby: author,
             epoch: epoch,
-            fulltext: fulltext,
-            source: source
+            details: details
           });
       /**/
     }
@@ -130,7 +129,7 @@ function punchnews(obj0){
       
       var repoch = (new Date).getTime();
       var rauthor = 'Joseph T. Obagbemisoye';
-      //writeNewPost(title, desc, rauthor, repoch, fulltext, source);
+      //writeNewPost(title, desc, rauthor, repoch, details);
     }
     // Place news stories in div tag
     document.getElementById('results').innerHTML = output;

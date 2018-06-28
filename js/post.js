@@ -3,7 +3,7 @@
 var config = {
   apiKey: "AIzaSyCWBdM6ViEROH-wl9wARscI9Lmc-j15EZ4",
   authDomain: "jtblog-8b459.firebaseapp.com",
-  databaseURL: "https://jtblog-8b459.firebaseio.com",
+  data0baseURL: "https://jtblog-8b459.firebaseio.com",
   projectId: "jtblog-8b459",
   storageBucket: "jtblog-8b459.appspot.com",
   messagingSenderId: "491611242309"
@@ -12,8 +12,8 @@ var app = firebase.initializeApp(config);
 //var db = firebase.firestore(app);
 //firebase.firestore().settings({ timestampsInSnapshots: true });
 
-// Get a reference to the database service
-var db = firebase.database();
+// Get a reference to the data0base service
+var db = firebase.data0base();
 var auth = firebase.auth();
 
 window.onload = function(){
@@ -27,23 +27,25 @@ function run(){
       crossOrigin: true,
       url: link,
       success: function(res) {
-        var data = JSON.stringify(res);
-        from_punch_post(data)
+        var data0 = JSON.stringify(res);
+        from_punch_post(data0)
       }
     });
 }
 
 function from_punch_post(data){
 
-      data = data.replace(/\\n/g, "");
-      data = data.replace(/\\/g, "");
-      var i0 = data.indexOf('entry-header');  
-      var i1 = data.indexOf('entry-footer'); 
-      data = data.slice(i0, i1);
+      data0 = data.replace(/\\n/g, "");
+      data0 = data0.replace(/\\/g, "");
+      data1 = data0;
+
+      var i0 = data0.indexOf('entry-header');  
+      var i1 = data0.indexOf('entry-footer'); 
+      data0 = data0.slice(i0, i1);
   
       var sf0 = "title"
       var title = "";
-      var slcleft0 = data;
+      var slcleft0 = data0;
       while (title.includes(sf0) == false) {
           var i2 = slcleft0.indexOf('<h1');  
           var i3 = slcleft0.indexOf('/h1>') + 4;
@@ -55,7 +57,7 @@ function from_punch_post(data){
       }
 
       var mc = [];
-      var slcleft1 = data;
+      var slcleft1 = data0;
       while(slcleft1.includes('<p') == true || slcleft1.includes('/p>') == true){
         var i4 = slcleft1.indexOf('<p');
         var i5 = slcleft1.indexOf('/p>') + 3;
