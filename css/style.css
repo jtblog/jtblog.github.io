@@ -623,6 +623,9 @@ header h2 {
 .inner {
   position: relative;
   display: inline-block;
+  border-style: 0;
+  border: 0;
+  border-width: 0;
   margin: 0 auto; }
 
 #content-wrapper {
