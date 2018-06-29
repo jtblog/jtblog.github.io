@@ -1,3 +1,8 @@
+$(document).ready(
+    function(){
+      $.ajax('showads.js').fail(function(d){if(d.status===0 || d.statusText == 'error'){$('html').addClass('ab');}}); 
+    } 
+);
 
 // Initialize Firebase
 var config = {
