@@ -4,6 +4,8 @@ $(document).ready(
     } 
 );
 
+var num_of_post = 0;
+
 // Initialize Firebase
 var config = {
   apiKey: "AIzaSyCWBdM6ViEROH-wl9wARscI9Lmc-j15EZ4",
@@ -35,6 +37,38 @@ function run(){
 	// head.appendChild(script);
 }
 
+function post_limiter(limit){
+  ref0.once("value")
+      .then(function(snapshot) {
+        var hasName = snapshot.hasChild("posts");
+        if(hasName == true){
+
+          // Loop through posts in order with the forEach() method. The callback
+          // provided to forEach() will be called synchronously with a DataSnapshot
+          // for each child:
+          var query = db.ref("posts").orderByKey();
+          query.once("value")
+            .then(
+              function(snapshot0) {
+              num_of_post = snapshot0.numChildren();
+              var count = 0;
+              snapshot0.forEach(
+                function(snapshot1) {
+                  if(count < limit){
+                    count = count + 1;
+                  }else{
+                    db.ref( ("posts/" + snapshot1.key) ).remove();
+                  }
+
+            });
+
+          });
+
+        }else{
+        }
+      });
+}
+
 function postexists(title){
 
     var has_post = false;
@@ -52,24 +86,19 @@ function postexists(title){
           query.once("value")
             .then(
               function(snapshot0) {
+              num_of_post = snapshot0.numChildren();
               snapshot0.forEach(
                 function(snapshot1) {
 
                 var key = snapshot1.key;
-                var t0 = "posts/" + key;
-                var ref1 = db.ref(t0);
+                var val = snapshot1.val();
 
-                ref1.once("value")
-                  .then(function(snapshot2) {
-                    //var key = snapshot2.key;
-                    var t1 = snapshot2.child("title").val();
-                    if(title == t1 || t1.indexOf(title) >= 0 || title.indexOf(t1) >= 0){
-                      has_post = true;
-                    }else{
-                      has_post = false;
-                    }
-
-                  });
+                var t1 = val.title;
+                if(title == t1 || t1.indexOf(title) >= 0 || title.indexOf(t1) >= 0){
+                  has_post = true;
+                }else{
+                  has_post = false;
+                }
 
             });
 
@@ -80,13 +109,17 @@ function postexists(title){
         }
       });
 
-      return has_post;
+    return has_post;
 
 }
 
 function writeNewPost(title, body, author, epoch, details) {
-
     var pe = postexists(title);
+
+    if(num_of_post >= 300){
+      post_limiter(300);
+    }
+    
     if(pe == false){
       /**/
        // A post entry.
@@ -144,17 +177,6 @@ function punchnews(obj0){
 
   }
 
-/*
-function adclick(){
-    var ads_div = document.querySelectorAll('.Ads');
-	  for(var i0 = 0; i0 < ads_div.length; i0++){
-	    var advs = ads_div[i0].querySelectorAll('div, noscript, iframe, a, img');
-		   for(var i1 = 0; i1 < advs.length; i1++){
-	       advs[i1].click();
-	      }
-	}
-  }
-*/
 window.fbAsyncInit = function() {
   FB.init({
     appId      : '371244233242046',
@@ -171,14 +193,3 @@ window.fbAsyncInit = function() {
    js.src = "//connect.facebook.net/en_US/sdk.js";
    fjs.parentNode.insertBefore(js, fjs);
  }(document, 'script', 'facebook-jssdk'));
-
-/*
-function fshare() {
-	var url = window.location.href;
-	FB.ui({
-	  method: 'share',
-	  display: 'popup',
-	  href: url,
-	}, function(response){});
-}
-*/
