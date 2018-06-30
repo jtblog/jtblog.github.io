@@ -15,7 +15,11 @@ var app = firebase.initializeApp(config);
 // Get a reference to the database service
 var db = firebase.database();
 var auth = firebase.auth();
-var jsn;
+var jsn = null;
+
+function loadslides(obj){
+  jsn = obj;
+};
 
 window.onload = function(){
 	run();
@@ -37,6 +41,3 @@ function run(){
     });
 };
 
-loadslides(obj){
-  jsn = obj;
-};
