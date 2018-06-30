@@ -86,7 +86,8 @@ function postexists(title){
 
 function writeNewPost(title, body, author, epoch, details) {
 
-    if(postexists == false){
+    var pe = postexists(title);
+    if(pe == false){
       /**/
        // A post entry.
           var postsRef = db.ref().child('posts');
@@ -136,7 +137,7 @@ function punchnews(obj0){
       
       var repoch = (new Date).getTime();
       var rauthor = 'Joseph T. Obagbemisoye';
-      //writeNewPost(title, body, rauthor, repoch, "details");
+      writeNewPost(title, body, rauthor, repoch, "details");
     }
     // Place news stories in div tag
     document.getElementById('results').innerHTML = output;
