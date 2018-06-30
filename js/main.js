@@ -25,7 +25,7 @@ var auth = firebase.auth();
 
 window.onload = function(){
 	run();
-}  
+};  
 
 function run(){
   //var h = $("#tble").parent().height();
@@ -35,7 +35,7 @@ function run(){
 
 	// var head = document.getElementsByName("body")[0];
 	// head.appendChild(script);
-}
+};
 
 function post_limiter(limit){
   ref0.once("value")
@@ -67,7 +67,7 @@ function post_limiter(limit){
         }else{
         }
       });
-}
+};
 
 function postexists(title){
 
@@ -111,7 +111,7 @@ function postexists(title){
 
     return has_post;
 
-}
+};
 
 function writeNewPost(title, body, author, epoch, details) {
     var pe = postexists(title);
@@ -119,7 +119,7 @@ function writeNewPost(title, body, author, epoch, details) {
     if(num_of_post >= 300){
       post_limiter(300);
     }
-    
+
     if(pe == false){
       /**/
        // A post entry.
@@ -135,7 +135,7 @@ function writeNewPost(title, body, author, epoch, details) {
       /**/
     }
 
- }
+ };
 
 function punchnews(obj0){
     var items = obj0.query.results.item;
@@ -175,7 +175,7 @@ function punchnews(obj0){
     // Place news stories in div tag
     document.getElementById('results').innerHTML = output;
 
-  }
+  };
 
 window.fbAsyncInit = function() {
   FB.init({

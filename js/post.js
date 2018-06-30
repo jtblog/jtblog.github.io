@@ -23,7 +23,7 @@ var auth = firebase.auth();
 
 window.onload = function(){
 	run();
-}  
+}; 
 
 function run(){
   var qs = decodeURIComponent(window.location.search);
@@ -36,7 +36,7 @@ function run(){
         from_punch_post(data0)
       }
     });
-}
+};
 
 function from_punch_post(data){
 
@@ -81,7 +81,7 @@ function from_punch_post(data){
       }
 
       document.getElementById('results').innerHTML = title + '\n' + con;
-}
+};
 
 
 
