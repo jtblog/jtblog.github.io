@@ -15,10 +15,12 @@ var app = firebase.initializeApp(config);
 // Get a reference to the database service
 var db = firebase.database();
 var auth = firebase.auth();
-var jsn = {};
 
 function loadimages(obj){
-  jsn = obj;
+  var bn = {};
+  for(var i=0; i < obj.data.length; i++){
+    bn.push(res.data[i].download_url);
+  }
 };
 
 window.onload = function(){
@@ -28,11 +30,21 @@ window.onload = function(){
 function run(){
   //var qs = decodeURIComponent(window.location.search);
   //var link = qs.slice(7, qs.length - 1);
-  var loc = "/images/slides";
+  $.ajax({
+      crossOrigin: true,
+      url: "https://api.github.com/repos/jtblog/jtblog.github.io/contents/images/slides",
+      dataType : "jsonp",
+      success: function(res) {
+        for(var i=0; i < res.data.length; i++){
+          //alert(JSON.stringify(res.data[i].path));
+          getimages(res.data[i].path);
+        }
+      }
+    });
 };
 
 function getimages(path){
-  var content_url = "https://api.github.com/repos/jtblog/jtblog.github.io/contents";
+  var content_url = "https://api.github.com/repos/jtblog/jtblog.github.io/contents/";
   
   $.ajax({
       crossOrigin: true,
