@@ -17,7 +17,7 @@ var db = firebase.database();
 var auth = firebase.auth();
 var jsn = {};
 
-function loadslides(obj){
+function loadimages(obj){
   jsn = obj;
 };
 
@@ -28,15 +28,18 @@ window.onload = function(){
 function run(){
   //var qs = decodeURIComponent(window.location.search);
   //var link = qs.slice(7, qs.length - 1);
-  var content_url = "https://api.github.com/repos/jtblog/jtblog.github.io/contents";
   var loc = "/images/slides";
+};
 
+function getimages(path){
+  var content_url = "https://api.github.com/repos/jtblog/jtblog.github.io/contents";
+  
   $.ajax({
       crossOrigin: true,
-      url: content_url + loc,
+      url: content_url + path,
       dataType : "jsonp",
       success: function(res) {
-        loadslides(res);
+        loadimages(res);
       }
     });
 };
