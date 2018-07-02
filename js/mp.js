@@ -32,7 +32,7 @@ function loadimages(obj, nme){
       id0.push(obj.data[i].sha);
     }
   }
-  var en = '</tr>';
+  var en = '</tr><br>';
   var insde = bg + con + en;
   idys.push(id0);
   cons.push(insde);
