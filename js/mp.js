@@ -22,39 +22,27 @@ var animate;
 var nflds;
 
 function loadimages(obj, nme){
-  var tr = document.createElement("tr"); 
-  tr.id = nme;
-  var div = document.createElement("div"); 
-  div.style.position = 'absolute';
-  div.style.top = (bnme.length * 250) + 'px';
-  //var con = '<tr id="' + nme + '"><td><div style="position: absolute; top:' + (bnme.length * 250) + 'px;">';
+  var con = '<tr id="' + nme + '"><td><div style="position: absolute; top:' + (bnme.length * 250) + 'px;">';
   bnme.push(nme);
 
   var id0 = [];
   if(obj.data.length <= 4){
     for(var i=0; i < obj.data.length; i++){
-      var im = document.createElement("img");
-      im.id = obj.data[i].sha;
-      im.src = obj.data[i].download_url;
-      im.style.position = 'absolute';
-      im.style.left = (i*300) + 'px';
-
-      div.appendChild(im);
-      //con = con + '<img id = "' + obj.data[i].sha + '" src="' + obj.data[i].download_url + '" alt="" title="" style="position: absolute;  left: ' + (i*300) + 'px; "/>';
+      con = con + '<img id = "' + obj.data[i].sha + bnme.length + '' + '" src="' + obj.data[i].download_url + '" alt="" title="" style="position: absolute;  left: ' + (i*300) + 'px; "/>';
       id0.push(obj.data[i].sha + bnme.length + '');
     }
   }
-
-  tr.appendChild(div);
-  //con = con + '</td></tr><br>';
+  con = con + '</td></tr><br>';
   idys.push(id0);
-  cons.push(tr);
+  cons.push(con);
 
+  var lcnt = '';
   for(var j=0; j < cons.length; j++){
-      document.getElementById('adimg').innerHTML = "";
-      document.getElementById('adimg').appendChild(cons[j]);
+    lcnt = lcnt + cons[j];
   }
 
+  document.getElementById('adimg').innerHTML = "";
+  document.getElementById('adimg').innerHTML = lcnt;
   if(idys.length == nflds){
     animate = setTimeout(move, 5000);
   }
