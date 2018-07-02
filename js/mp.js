@@ -32,7 +32,7 @@ function loadimages(obj, nme){
       id0.push(obj.data[i].sha + bnme.length + '');
     }
   }
-  con = con + '</td></tr><br>';
+  con = con + '</div></td></tr><br>';
   idys.push(id0);
   cons.push(con);
 
