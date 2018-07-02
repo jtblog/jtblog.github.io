@@ -16,6 +16,7 @@ var app = firebase.initializeApp(config);
 var db = firebase.database();
 var auth = firebase.auth();
 var bnme = [];
+var idys = [];
 var cons = [];
 var animate;
 
@@ -24,13 +25,16 @@ function loadimages(obj, nme){
   bnme.push(nme);
 
   var bg = '<tr id="' + nme + '">';
+  var id0 = [];
   if(obj.data.length <= 4){
     for(var i=0; i < obj.data.length; i++){
       con = con + '<img id = "' + obj.data[i].sha + '" src="' + obj.data[i].download_url + '" alt="" title="" style="position: absolute;  left: ' + (i*300) + 'px; "/>';
+      id0.push(obj.data[i].sha);
     }
   }
   var en = '</tr>';
   var insde = bg + con + en;
+  idys.push(id0);
   cons.push(insde);
 
   var lcnt = '';
@@ -44,10 +48,10 @@ function loadimages(obj, nme){
 
 function move(){
   for(var i = 0; i < bnme.length; i++){
-    var frst = document.getElementById(bnme[i]).children[0];
-     var secnd = document.getElementById(bnme[i]).children[1];
-      var thrd = document.getElementById(bnme[i]).children[2];
-       var foth = document.getElementById(bnme[i]).children[3];
+    var frst = document.getElementById('' + idys[i][0] + '');
+     var secnd = document.getElementById('' + idys[i][1] + '');
+      var thrd = document.getElementById('' + idys[i][2] + '');
+       var foth = document.getElementById('' + idys[i][3] + '');
 
        if( (parseInt(frst.style.left) - 300) < 0){
           frst.style.left = '900px';
