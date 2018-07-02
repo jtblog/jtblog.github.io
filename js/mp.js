@@ -51,12 +51,8 @@ function loadimages(obj, nme){
   cons.push(tr);
 
   for(var j=0; j < cons.length; j++){
-    if(idys.length == nflds){
       document.getElementById('adimg').innerHTML = "";
       document.getElementById('adimg').appendChild(cons[j]);
-    //lcnt = lcnt + cons[j];
-    }
-      
   }
 
   if(idys.length == nflds){
