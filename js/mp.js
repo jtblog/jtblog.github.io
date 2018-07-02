@@ -21,10 +21,9 @@ var cons = [];
 var animate;
 
 function loadimages(obj, nme){
-  var con = "";
+  var con = '<tr id="' + nme + '" position = absolute top=' + bnme.length * 250 + 'px ><td>';
   bnme.push(nme);
 
-  var bg = '<tr id="' + nme + '" position = absolute top=' + bnme.length * 250 + 'px ><td>';
   var id0 = [];
   if(obj.data.length <= 4){
     for(var i=0; i < obj.data.length; i++){
@@ -32,10 +31,9 @@ function loadimages(obj, nme){
       id0.push(obj.data[i].sha);
     }
   }
-  var en = '</td></tr><br>';
-  var insde = bg + con + en;
+  con = con + '</td></tr><br>';
   idys.push(id0);
-  cons.push(insde);
+  cons.push(con);
 
   var lcnt = '';
   for(var j=0; j < cons.length; j++){
