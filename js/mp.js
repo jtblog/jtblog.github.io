@@ -17,6 +17,7 @@ var db = firebase.database();
 var auth = firebase.auth();
 var bnme = [];
 var cons = [];
+var animate;
 
 function loadimages(obj, nme){
   var con = "";
@@ -38,8 +39,43 @@ function loadimages(obj, nme){
   }
 
   document.getElementById('adimg').innerHTML = lcnt;
-  //document.getElementById("myDiv").children;
+  animate = setTimeout(move, 1000);
 };
+
+function move(){
+  for(var i = 0; i < bnme.length; i++){
+    var frst = document.getElementById(bnme[i]).children[0];
+     var secnd = document.getElementById(bnme[i]).children[1];
+      var thrd = document.getElementById(bnme[i]).children[2];
+       var foth = document.getElementById(bnme[i]).children[3];
+
+       if( (parseInt(frst.style.left) - 300) < 0){
+          frst.style.left = '900px';
+       }else{
+          frst.style.left = parseInt(frst.style.left) - 300 + 'px';
+       }
+
+       if( (parseInt(secnd.style.left) - 300) < 0){
+          secnd.style.left = '900px';
+       }else{
+          secnd.style.left = parseInt(secnd.style.left) - 300 + 'px';
+       }
+
+       if( (parseInt(thrd.style.left) - 300) < 0){
+          thrd.style.left = '900px';
+       }else{
+          thrd.style.left = parseInt(thrd.style.left) - 300 + 'px';
+       }
+
+       if( (parseInt(foth.style.left) - 300) < 0){
+          foth.style.left = '900px';
+       }else{
+          foth.style.left = parseInt(foth.style.left) - 300 + 'px';
+       }
+
+       animate = setTimeout(move, 1000);
+  }
+}
 
 window.onload = function(){
 	run();
