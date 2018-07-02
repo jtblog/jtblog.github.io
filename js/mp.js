@@ -24,7 +24,7 @@ function loadimages(obj, nme){
   var con = "";
   bnme.push(nme);
 
-  var bg = '<tr id="' + nme + '">';
+  var bg = '<tr id="' + nme + '"><td>';
   var id0 = [];
   if(obj.data.length <= 4){
     for(var i=0; i < obj.data.length; i++){
@@ -32,7 +32,7 @@ function loadimages(obj, nme){
       id0.push(obj.data[i].sha);
     }
   }
-  var en = '</tr><br>';
+  var en = '</td></tr><br>';
   var insde = bg + con + en;
   idys.push(id0);
   cons.push(insde);
