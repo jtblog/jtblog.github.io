@@ -42,6 +42,7 @@ function loadimages(obj, nme){
     lcnt = lcnt + cons[j];
   }
 
+  document.getElementById('adimg').innerHTML = "";
   document.getElementById('adimg').innerHTML = lcnt;
   animate = setTimeout(move, 5000);
 };
