@@ -19,6 +19,7 @@ var bnme = [];
 var idys = [];
 var cons = [];
 var animate;
+var nflds;
 
 function loadimages(obj, nme){
   var con = '<tr id="' + nme + '"><td><div style="position: absolute; top:' + (bnme.length * 250) + 'px;">';
@@ -42,7 +43,9 @@ function loadimages(obj, nme){
 
   document.getElementById('adimg').innerHTML = "";
   document.getElementById('adimg').innerHTML = lcnt;
-  animate = setTimeout(move, 5000);
+  if(idys.length == nflds){
+    animate = setTimeout(move, 5000);
+  }
 };
 
 function move(){
@@ -92,6 +95,7 @@ function run(){
       url: "https://api.github.com/repos/jtblog/jtblog.github.io/contents/images/slides",
       dataType : "jsonp",
       success: function(res) {
+        nflds = res.data.length;
         for(var i=0; i < res.data.length; i++){
           if(res.data[i].type == 'dir'){
             getimages(res.data[i].path, res.data[i].name);
