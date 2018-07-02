@@ -21,7 +21,7 @@ function loadimages(bg, obj, en){
   if(obj.data.length <= 4){
     for(var i=0; i < obj.data.length; i++){
       con = con + '<img id = "' + obj.data[i].sha + '" src="' + obj.data[i].download_url + 
-      '" alt="" title="" style="position: relative; left: ' + (i*150) + 'px; padding: 5px;"/>';
+      '" alt="" title="" style="position: relative; left: ' + (i*150) + 'px;"/>';
     }
   }
   con = con + en;
