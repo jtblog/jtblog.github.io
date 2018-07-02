@@ -44,7 +44,7 @@ function loadimages(obj, nme){
   document.getElementById('adimg').innerHTML = "";
   document.getElementById('adimg').innerHTML = lcnt;
   if(idys.length == nflds){
-    setTimeout(move, 10000);
+    animate = setTimeout(move, 10000);
   }
 };
 
@@ -79,7 +79,8 @@ function move(){
           foth.style.left = parseInt(foth.style.left) - 300 + 'px';
        }
 
-       setTimeout(move, 10000);
+       clearTimeout(animate);
+       animate = setTimeout(move, 10000);
   }
 }
 
