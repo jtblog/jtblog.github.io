@@ -43,7 +43,7 @@ function loadimages(obj, nme){
   }
 
   document.getElementById('adimg').innerHTML = lcnt;
-  animate = setTimeout(move, 1000);
+  animate = setTimeout(move, 5000);
 };
 
 function move(){
@@ -77,7 +77,7 @@ function move(){
           foth.style.left = parseInt(foth.style.left) - 300 + 'px';
        }
 
-       animate = setTimeout(move, 1000);
+       animate = setTimeout(move, 5000);
   }
 }
 
