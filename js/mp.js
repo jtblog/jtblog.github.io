@@ -71,7 +71,7 @@ function getimages(path, nme){
       url: content_url + path,
       dataType : "jsonp",
       success: function(res) {
-        loadimages(bg, res, en, nme);
+        loadimages(res, nme);
       }
     });
 };
