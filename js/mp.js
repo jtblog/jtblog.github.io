@@ -25,7 +25,7 @@ function loadimages(obj, nme){
   var tr = document.createElement("tr"); 
   tr.id = nme;
   var div = document.createElement("div"); 
-  div.style.position = absolute;
+  div.style.position = 'absolute';
   div.style.top = (bnme.length * 250) + 'px';
   //var con = '<tr id="' + nme + '"><td><div style="position: absolute; top:' + (bnme.length * 250) + 'px;">';
   bnme.push(nme);
@@ -36,7 +36,7 @@ function loadimages(obj, nme){
       var im = document.createElement("img");
       im.id = obj.data[i].sha;
       im.src = obj.data[i].download_url;
-      im.style.position = absolute;
+      im.style.position = 'absolute';
       im.style.left = (i*300) + 'px';
 
       div.appendChild(im);
