@@ -24,7 +24,7 @@ function loadimages(obj, nme){
   var con = "";
   bnme.push(nme);
 
-  var bg = '<tr id="' + nme + '"><td>';
+  var bg = '<tr id="' + nme + '" position = absolute top=' + bnme.length * 250 + 'px ><td>';
   var id0 = [];
   if(obj.data.length <= 4){
     for(var i=0; i < obj.data.length; i++){
