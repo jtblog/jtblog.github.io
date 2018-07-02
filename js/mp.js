@@ -16,14 +16,15 @@ var app = firebase.initializeApp(config);
 var db = firebase.database();
 var auth = firebase.auth();
 
-function loadimages(obj){
-  var el = '';
+function loadimages(bg, obj, en){
+  var con = bg;
   if(obj.data.length <= 4){
     for(var i=0; i < obj.data.length; i++){
-      el = el + '<img id = "' + obj.data[i].sha + '"src="' + obj.data[i].download_url + '" alt="" title="" style="position: relative; left: ' + (i*300) + 'px;"/>';
+      con = con + '<img id = "' + obj.data[i].sha + '" src="' + obj.data[i].download_url + '" alt="" title="" style="position: relative; left: ' + (i*300) + 'px; "/>';
     }
   }
-  return el;
+  con = con + en;
+  document.getElementById('adimg').innerHTML = con;
 };
 
 window.onload = function(){
@@ -33,8 +34,6 @@ window.onload = function(){
 function run(){
   //var qs = decodeURIComponent(window.location.search);
   //var link = qs.slice(7, qs.length - 1);
-  var im = '';
-
   $.ajax({
       crossOrigin: true,
       url: "https://api.github.com/repos/jtblog/jtblog.github.io/contents/images/slides",
@@ -42,25 +41,23 @@ function run(){
       success: function(res) {
         for(var i=0; i < res.data.length; i++){
           if(res.data[i].type == 'dir'){
-            im = im + '<tr>' + getimages(res.data[i].path) + '</tr>';
+            getimages('<tr>', res.data[i].path, '</tr>');
           }
         }
       }
     });
 
-  document.getElementById('adimg').innerHTML = im;
 };
 
-function getimages(path){
+function getimages(bg, path, en){
   var content_url = "https://api.github.com/repos/jtblog/jtblog.github.io/contents/";
-  var rr = "";
 
   $.ajax({
       crossOrigin: true,
       url: content_url + path,
       dataType : "jsonp",
       success: function(res) {
-        rr = loadimages(res);
+        loadimages(bg, res, en);
       }
     });
   return rr;
