@@ -41,15 +41,16 @@ function loadimages(obj, nme){
     lcnt = lcnt + cons[j];
   }
 
-  document.getElementById('adimg').innerHTML = "";
-  document.getElementById('adimg').innerHTML = lcnt;
+  //document.getElementById('adimg').innerHTML = "";
+  //document.getElementById('adimg').innerHTML = lcnt;
   if(idys.length == nflds){
+    $('#adimg' ).append(lcnt);
     animate = setTimeout(move, 5000);
   }
 };
 
 function move(){
-  for(var i = 0; i < bnme.length; i++){
+  for(var i = 0; i < idys.length; i++){
     var frst = document.getElementById('' + idys[i][0] + '');
      var secnd = document.getElementById('' + idys[i][1] + '');
       var thrd = document.getElementById('' + idys[i][2] + '');
