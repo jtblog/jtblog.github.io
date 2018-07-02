@@ -21,7 +21,7 @@ var cons = [];
 var animate;
 
 function loadimages(obj, nme){
-  var con = '<tr id="' + nme + '"><td><div style="position = absolute; top=' + bnme.length * 250 + 'px;">';
+  var con = '<tr id="' + nme + '"><td><div style="position: absolute; top:' + (bnme.length * 250) + 'px;">';
   bnme.push(nme);
 
   var id0 = [];
