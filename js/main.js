@@ -194,32 +194,28 @@ function punchnews(obj0){
       //writeNewPost(title, body, rauthor, repoch, "details");
 
       clearTimeout(iter0);
+              window.fbAsyncInit = function() {
+                FB.init({
+                  appId            : '371244233242046',
+                  autoLogAppEvents : true,
+                  xfbml            : true,
+                  version          : 'v3.0'
+                });
+              };
+
+              (function(d, s, id){
+                 var js, fjs = d.getElementsByTagName(s)[0];
+                 if (d.getElementById(id)) {return;}
+                 js = d.createElement(s); js.id = id;
+                 js.src = "https://connect.facebook.net/en_US/sdk.js";
+                 fjs.parentNode.insertBefore(js, fjs);
+               }(document, 'script', 'facebook-jssdk'));
       iter0 = setTimeout(process0(link), 5000);
     }
     // Place news stories in div tag
     document.getElementById('results').innerHTML = output;
 
   };
-
-/*
-window.fbAsyncInit = function() {
-  FB.init({
-    appId      : '371244233242046',
-    xfbml      : true,
-    version    : 'v2.8'
-  });
-  FB.AppEvents.logPageView();
-};
-
-(function(d, s, id){
-   var js, fjs = d.getElementsByTagName(s)[0];
-   if (d.getElementById(id)) {return;}
-   js = d.createElement(s); js.id = id;
-   js.src = "//connect.facebook.net/en_US/sdk.js";
-   fjs.parentNode.insertBefore(js, fjs);
- }(document, 'script', 'facebook-jssdk'));
-*/
-
 function process0(link){
   $.ajax({
       crossOrigin: true,
@@ -298,10 +294,43 @@ function process1(data){
       );
 
       if(index0 < lst0.length){
+
         clearTimeout(iter0);
+                window.fbAsyncInit = function() {
+                  FB.init({
+                    appId            : '371244233242046',
+                    autoLogAppEvents : true,
+                    xfbml            : true,
+                    version          : 'v3.0'
+                  });
+                };
+
+                (function(d, s, id){
+                   var js, fjs = d.getElementsByTagName(s)[0];
+                   if (d.getElementById(id)) {return;}
+                   js = d.createElement(s); js.id = id;
+                   js.src = "https://connect.facebook.net/en_US/sdk.js";
+                   fjs.parentNode.insertBefore(js, fjs);
+                 }(document, 'script', 'facebook-jssdk'));
         iter0 = setTimeout(process0(lst0[index0]), 5000);
       }else{
         clearTimeout(iter0);
+                window.fbAsyncInit = function() {
+                  FB.init({
+                    appId            : '371244233242046',
+                    autoLogAppEvents : true,
+                    xfbml            : true,
+                    version          : 'v3.0'
+                  });
+                };
+
+                (function(d, s, id){
+                   var js, fjs = d.getElementsByTagName(s)[0];
+                   if (d.getElementById(id)) {return;}
+                   js = d.createElement(s); js.id = id;
+                   js.src = "https://connect.facebook.net/en_US/sdk.js";
+                   fjs.parentNode.insertBefore(js, fjs);
+                 }(document, 'script', 'facebook-jssdk'));
       }
       
 
