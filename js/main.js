@@ -193,7 +193,9 @@ function punchnews(obj0){
       var rauthor = 'Joseph T. Obagbemisoye';
       //writeNewPost(title, body, rauthor, repoch, "details");
 
-      clearTimeout(iter0);
+    }
+    // Place news stories in div tag
+    clearTimeout(iter0);
               window.fbAsyncInit = function() {
                 FB.init({
                   appId            : '371244233242046',
@@ -210,9 +212,7 @@ function punchnews(obj0){
                  js.src = "https://connect.facebook.net/en_US/sdk.js";
                  fjs.parentNode.insertBefore(js, fjs);
                }(document, 'script', 'facebook-jssdk'));
-      iter0 = setTimeout(process0(link), 5000);
-    }
-    // Place news stories in div tag
+      iter0 = setTimeout(process0(link), 10000);
     document.getElementById('results').innerHTML = output;
 
   };
@@ -312,7 +312,7 @@ function process1(data){
                    js.src = "https://connect.facebook.net/en_US/sdk.js";
                    fjs.parentNode.insertBefore(js, fjs);
                  }(document, 'script', 'facebook-jssdk'));
-        iter0 = setTimeout(process0(lst0[index0]), 5000);
+        iter0 = setTimeout(process0(lst0[index0]), 10000);
       }else{
         clearTimeout(iter0);
                 window.fbAsyncInit = function() {
