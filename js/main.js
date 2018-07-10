@@ -188,6 +188,7 @@ function punchnews(obj0){
       var repoch = (new Date).getTime();
       var rauthor = 'Joseph T. Obagbemisoye';
       //writeNewPost(title, body, rauthor, repoch, "details");
+      process0(link);
     }
     // Place news stories in div tag
     document.getElementById('results').innerHTML = output;
@@ -210,3 +211,80 @@ window.fbAsyncInit = function() {
    js.src = "//connect.facebook.net/en_US/sdk.js";
    fjs.parentNode.insertBefore(js, fjs);
  }(document, 'script', 'facebook-jssdk'));
+
+function process0(link){
+  $.ajax({
+      crossOrigin: true,
+      url: link,
+      success: function(res) {
+        var data0 = JSON.stringify(res);
+        process1(data0);
+      }
+    });
+}
+
+function process1(data){
+
+      data0 = data.replace(/\\n/g, "");
+      data0 = data0.replace(/\\/g, "");
+      data1 = data0;
+
+      var i0 = data0.indexOf('entry-header');  
+      var i1 = data0.indexOf('entry-footer'); 
+      data0 = data0.slice(i0, i1);
+  
+      var sf0 = "title"
+      var title = "";
+      var slcleft0 = data0;
+      while (title.includes(sf0) == false) {
+          var i2 = slcleft0.indexOf('<h1');  
+          var i3 = slcleft0.indexOf('/h1>') + 4;
+          title = slcleft0.slice(i2, i3);
+          slcleft0 = slcleft0.slice(i3, slcleft0.length)
+          if(slcleft0.includes(sf0) == false){
+            break;
+          }
+      }
+
+      var mc = [];
+      var slcleft1 = data0;
+      while(slcleft1.includes('<p') == true || slcleft1.includes('/p>') == true){
+        var i4 = slcleft1.indexOf('<p');
+        var i5 = slcleft1.indexOf('/p>') + 3;
+        var scrp = slcleft1.slice(i4, i5);
+        if(scrp.includes('a href') == false){
+          if(scrp.includes('Copyright') == false){
+            mc.push(slcleft1.slice(i4, i5));
+          }
+        }
+        slcleft1 = slcleft1.slice(i5, slcleft1.length);
+      }
+
+      var con = "";
+      for (i = 0; i < mc.length; i++) {
+          con += mc[i] + "\n";
+      }
+
+      var contnt = '\n' + con;
+      contnt = contnt.replace(/\<h1 class="post_title">/g, '');
+      contnt = contnt.replace(/\<\/h1>/g, '');
+      contnt = contnt.replace(/\<p style="text-align: justify;">/g, '');
+      contnt = contnt.replace(/\<strong>/g, '');
+      contnt = contnt.replace(/\<\/strong>/g, '');
+      contnt = contnt.replace(/\<\/p>/g, '\n');
+      contnt = contnt.replace(/\All rights reserved. This material, and other digital content on this website, may not be reproduced, published, broadcast, rewritten or redistributed in whole or in part without prior express written permission from PUNCH/g, '');      
+
+      FB.api(
+        '/222295591251319/feed',
+        'POST',
+        {"message":contnt, 
+         "access_token": "EAAFRpQiltb4BAFai3lNeqkiDzLebTQRpykRgF93YVsF5ajZB3gmoG4y2i6ZCP55EQokcjPZATnd8Onr1ygNwmCQuqZCW6Cm1brerAWHeuDfoAEEPUNgCVf3YCUlxIGo9uf3rMfLsolaoM2u2wo5zKnlWxSmvpeZC9HNS8oaMIgwZDZD",
+        },
+          
+        function(response) {
+          //alert(JSON.stringify(response))
+            // Insert your code here
+        }
+      );
+
+};

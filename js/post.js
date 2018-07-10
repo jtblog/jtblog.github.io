@@ -50,7 +50,7 @@ function run(){
       url: link,
       success: function(res) {
         var data0 = JSON.stringify(res);
-        from_punch_post(data0)
+        from_punch_post(data0);
       }
     });
 };
@@ -97,7 +97,9 @@ function from_punch_post(data){
           con += mc[i] + "\n";
       }
 
-      document.getElementById('results').innerHTML = title + '\n' + con;
+      var contnt = title + '\n' + con;
+      contnt = contnt.replace(/\All rights reserved. This material, and other digital content on this website, may not be reproduced, published, broadcast, rewritten or redistributed in whole or in part without prior express written permission from PUNCH/g, '');      
+      document.getElementById('results').innerHTML = contnt;
 };
 
 
