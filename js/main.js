@@ -195,6 +195,7 @@ function punchnews(obj0){
 
   };
 
+/*
 window.fbAsyncInit = function() {
   FB.init({
     appId      : '371244233242046',
@@ -211,6 +212,7 @@ window.fbAsyncInit = function() {
    js.src = "//connect.facebook.net/en_US/sdk.js";
    fjs.parentNode.insertBefore(js, fjs);
  }(document, 'script', 'facebook-jssdk'));
+*/
 
 function process0(link){
   $.ajax({
