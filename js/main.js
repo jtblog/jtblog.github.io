@@ -193,8 +193,8 @@ function punchnews(obj0){
       var rauthor = 'Joseph T. Obagbemisoye';
       //writeNewPost(title, body, rauthor, repoch, "details");
 
-      //clearTimeout(iter0);
-      //iter0 = setTimeout(process0(link), 5000);
+      clearTimeout(iter0);
+      iter0 = setTimeout(process0(link), 5000);
     }
     // Place news stories in div tag
     document.getElementById('results').innerHTML = output;
@@ -232,6 +232,8 @@ function process0(link){
 }
 
 function process1(data){
+
+      index0 = index0 + 1;
 
       data0 = data.replace(/\\n/g, "");
       data0 = data0.replace(/\\/g, "");
@@ -294,5 +296,13 @@ function process1(data){
             // Insert your code here
         }
       );
+
+      if(index0 < lst0.length){
+        clearTimeout(iter0);
+        iter0 = setTimeout(process0(lst0[index0]), 5000);
+      }else{
+        clearTimeout(iter0);
+      }
+      
 
 };
