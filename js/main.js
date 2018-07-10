@@ -24,7 +24,7 @@ $(document).ready(
 var num_of_post = 0;
 var iter0;
 var index0 = 0;
-var lst0;
+var lst0 = [];
 
 // Initialize Firebase
 var config = {
