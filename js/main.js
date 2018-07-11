@@ -278,6 +278,7 @@ function process1(data){
       contnt = contnt.replace(/\<strong>/g, '');
       contnt = contnt.replace(/\<\/strong>/g, '');
       contnt = contnt.replace(/\<\/p>/g, '\n');
+      contnt = contnt.replace(/\<p>/g, '');
       contnt = contnt.replace(/\All rights reserved. This material, and other digital content on this website, may not be reproduced, published, broadcast, rewritten or redistributed in whole or in part without prior express written permission from PUNCH/g, '');      
 
       FB.api(
