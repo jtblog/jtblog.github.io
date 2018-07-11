@@ -280,6 +280,20 @@ function process1(data){
       contnt = contnt.replace(/\<\/p>/g, '\n');
       contnt = contnt.replace(/\<p>/g, '');
       contnt = contnt.replace(/\All rights reserved. This material, and other digital content on this website, may not be reproduced, published, broadcast, rewritten or redistributed in whole or in part without prior express written permission from PUNCH/g, '');      
+      contnt = contnt.replace(/\<p class="header">/g, '');
+      contnt = contnt.replace(/\<h1 class="post_title">/g, '');
+      contnt = contnt.replace(/\&#8221;/g, '');
+      contnt = contnt.replace(/\<em>/g, '');
+      contnt = contnt.replace(/\<\/em>/g, '');
+      contnt = contnt.replace(/\&#8217;/g, "'");
+      contnt = contnt.replace(/\the PUNCH/g, 'JT Blog');
+      /*<p class="header">
+      &#8221;
+      <em>
+      </em>
+      &#8217;   '
+      &#8220;
+      the PUNCH*/
 
       FB.api(
         '/222295591251319/feed',
