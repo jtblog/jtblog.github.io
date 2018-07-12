@@ -295,6 +295,10 @@ function process1(data){
       &#8220;
       the PUNCH*/
 
+      if(contnt.indexOf('>') > 0 && contnt.indexOf('<') > 0){
+        contnt = "";
+      }
+
       FB.api(
         '/222295591251319/feed',
         'POST',
