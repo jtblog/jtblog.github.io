@@ -9,22 +9,13 @@
     <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Pacifico">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=UnifrakturCook:700">
-    <link rel="stylesheet" href="assets/css/gradient-navbar-1.css">
     <link rel="stylesheet" href="assets/css/gradient-navbar.css">
-    <link rel="stylesheet" href="assets/css/Sidebar-Menu-1.css">
+    <link rel="stylesheet" href="assets/css/leaflet.css">
     <link rel="stylesheet" href="assets/css/Sidebar-Menu.css">
     <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 
 <body>
-    <nav class="navbar navbar-dark navbar-expand-md" id="app-navbar">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">
-                <h1 style="font-family: Pacifico, cursive;"><a href="#" style="color: rgb(255,255,255);">jtblog<br></a></h1>
-            </a><button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"></button>
-            <div class="collapse navbar-collapse" id="navcol-1"></div>
-        </div>
-    </nav>
     <div id="wrapper">
         <div id="sidebar-wrapper">
             <ul class="sidebar-nav">
@@ -35,7 +26,20 @@
             </ul>
         </div>
         <div class="page-content-wrapper">
-            <div class="container-fluid"><a class="btn btn-link" role="button" href="#menu-toggle" id="menu-toggle"><i class="fa fa-bars"></i></a>
+            <div class="container navbar navbar-dark navbar-expand-md" style="background: linear-gradient(120deg, #00e4d0, #5983e8);max-width: 100%;margin: 0px;padding-right: 0px;padding-left: 0px;">
+                <div class="row d-xl-flex justify-content-xl-center align-items-xl-center" style="width: 100%;margin: 0px;">
+                    <div class="col">
+                        <h1 style="font-family: Pacifico, cursive;"><a class="d-xl-flex justify-content-xl-start" href="#" style="color: rgb(255,255,255);font-family: UnifrakturCook, cursive;">jtblog<br></a></h1>
+                    </div>
+                    <div class="col d-flex d-md-flex d-lg-flex d-xl-flex justify-content-end align-items-center justify-content-md-end align-items-md-center justify-content-lg-end align-items-lg-center justify-content-xl-end"><a class="btn btn-link" role="button" href="#menu-toggle" id="menu-toggle"><i class="fa fa-bars" style="color: rgb(255,255,255);"></i></a></div>
+                </div>
+            </div>
+            <nav class="navbar navbar-dark navbar-expand-md" id="app-navbar">
+                <div class="container-fluid"><a class="navbar-brand" href="#"></a><button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"></button>
+                    <div class="collapse navbar-collapse" id="navcol-1"></div>
+                </div>
+            </nav>
+            <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-12">
                         <div>
@@ -50,6 +54,10 @@
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/Sidebar-Menu.js"></script>
+    <script src="assets/js/leaflet-src.esm.js"></script>
+    <script src="assets/js/leaflet-src.js"></script>
+    <script src="assets/js/leaflet.js"></script>
+    <script src="assets/js/app.js"></script>
 </body>
 
 </html>
