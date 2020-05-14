@@ -42,7 +42,7 @@ function showPosition(position) {
     tiles.addTo(mymap);
     var marker = L.marker([lat, long]).addTo(mymap);
     
-    var circle = L.circle([lat-0.100, long], {
+    var circle = L.circle([lat+0.100, long], {
         color: 'red',
         fillColor: '#f03',
         fillOpacity: 0.5,
