@@ -42,10 +42,17 @@ function showPosition(position) {
     tiles.addTo(mymap);
     var marker = L.marker([lat, long]).addTo(mymap);
     
-    var circle = L.circle([lat+0.100, long], {
+    /*var circle = L.circle([lat+0.100, long], {
         color: 'red',
         fillColor: '#f03',
         fillOpacity: 0.5,
         radius: 100
-    }).addTo(mymap);
+    }).addTo(mymap);*/
+}
+
+function setPos(_lat, _long){
+    mymap = L.map('mapid').setView([_lat, _long], 13);
+    const tiles = L.tileLayer(tileUrl, { attribution })
+    tiles.addTo(mymap);
+    var marker = L.marker([lat, long]).addTo(mymap);
 }
