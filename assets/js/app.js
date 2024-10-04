@@ -56,3 +56,46 @@ function setPos(_lat, _long){
     tiles.addTo(mymap);
     var marker = L.marker([lat, long]).addTo(mymap);
 }
+
+
+
+
+
+
+var url = 'https://jtblog.github.io/assets/pdf/oat_resume.pdf'; // Replace with the actual path to your PDF
+
+var pdfDoc = null,
+    pageNum = 1,
+    canvasContainer = document.getElementById('pdfContainer');
+
+  // Load the PDF
+pdfjsLib.getDocument(url).promise.then(function(pdfDoc_) {
+    pdfDoc = pdfDoc_;
+    for (var i = 1; i <= pdfDoc.numPages; i++) {
+      renderPage(i);  // Call renderPage for each page
+    }
+});
+
+ function renderPage(num) {
+    pdfDoc.getPage(num).then(function(page) {
+      var scale = 1.5;
+      var viewport = page.getViewport({scale: scale});
+
+      // Create a canvas element for each page
+      var canvas = document.createElement('canvas');
+      canvas.style.display = 'block';  // Ensures that the canvas takes up a block
+      var context = canvas.getContext('2d');
+      canvas.height = viewport.height;
+      canvas.width = viewport.width;
+
+      // Append the canvas to the container
+      canvasContainer.appendChild(canvas);
+
+      // Render the page
+      var renderContext = {
+        canvasContext: context,
+        viewport: viewport
+      };
+      page.render(renderContext);
+    });
+ }
