@@ -51,7 +51,32 @@
                         <div>
                             <h1 style="display: inline-block;word-wrap: break-word;position: relative;">This site is under restructuring and will be available soon<small></small></h1>
                         </div>
-                        <div><div></div>
+                        <div><canvas id="pdfCanvas"></canvas>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.min.js"></script>
+
+<script>
+  var url = 'https://jtblog.github.io/assets/pdf/oat_resume.pdf';
+  var loadingTask = pdfjsLib.getDocument(url);
+  loadingTask.promise.then(function(pdf) {
+    pdf.getPage(1).then(function(page) {
+      var scale = 1.5;
+      var viewport = page.getViewport({scale: scale});
+      var canvas = document.getElementById('pdfCanvas');
+      var context = canvas.getContext('2d');
+      canvas.height = viewport.height;
+      canvas.width = viewport.width;
+      var renderContext = {
+        canvasContext: context,
+        viewport: viewport
+      };
+      var renderTask = page.render(renderContext);
+      renderTask.promise.then(function () {
+        console.log('Page rendered');
+      });
+    });
+  });
+</script>
 </div>
                     </div>
                 </div>
